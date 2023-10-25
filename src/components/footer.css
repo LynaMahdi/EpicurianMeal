@@ -1,0 +1,83 @@
+/* Footer Styles */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.coté {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+}
+
+p{
+  color: black;
+}
+.coté h3 {
+  font-size: 20px;
+  color: black;
+}
+
+ul {
+  position: relative;
+  list-style: none;
+  top: 60px;
+  color: black;
+}
+
+ul li {
+  margin: 5px 0;
+}
+
+img.f {
+  width: 100px;
+  height: 100px;
+}
+
+.email {
+  width: 220px;
+  height: 30px;
+  padding: 0.3rem 1rem;
+  background-color: rgba(252, 252, 252, 0);
+  border-radius: 5px;
+  padding: 0.3rem 1rem;
+  margin-top: 20px;
+}
+
+
+
+.subscribe {
+
+  background-color: #F27054;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  height: 40px;
+  width: 100px;
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 724px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .coté {
+    margin: 5px 0;
+    text-align: center;
+    color: black;
+  }
+
+  .email, .subscribe {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+
+}

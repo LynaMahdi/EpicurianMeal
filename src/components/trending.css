@@ -1,0 +1,42 @@
+
+
+.contenu1{
+   
+    width: 295.25px;
+    height: 405px;
+    background-color: white;
+    box-shadow: 0 7px 19px rgba(228, 174, 174, 0.5);
+    border-radius: 16px;
+    padding: 20px;
+   text-align: center;}
+
+
+.plat{
+
+    position: absolute;
+    width: 279px;
+    height: 200px;
+    border-radius: 6px;
+    left: 8px;
+    top: 8px;
+  
+}
+
+.contenu1 .info{
+    color: black;
+    margin-left: 0px;
+    margin-top: 180px;
+}
+
+h{
+    position: relative;
+    font-weight: 900;
+    top: 25px;
+}
+
+
+  
+  /* Styles pour les grands écrans */
+  @media (min-width: 1024px) {
+
+  }

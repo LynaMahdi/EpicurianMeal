@@ -1,0 +1,50 @@
+
+.TabFiltres{
+    position: absolute;
+    width:394px;
+    height:965px;
+    background-color: white;
+    box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
+    right: 1556px;
+    top: 282px;
+    border-radius: 16px;
+
+
+}
+
+
+.FormGroup{
+    position: relative;
+    margin-top: 38px;
+}
+
+h9{
+    position: relative;
+    font-family: Public Sans;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: center;
+    top: 60px;
+    left: 90px;
+    
+}
+
+.groups{
+    position: relative;
+    margin-top: 30px;
+}
+
+
+.FormControl{
+    position: relative;
+    top: 100px;
+    left: 22px;
+    width: 210px;
+}
+
+.InputLabel{
+    position: relative;
+    margin-top: 0px;
+}

@@ -1,0 +1,214 @@
+.Box-Connexion{
+    position: relative;
+    width: 600px;
+    height: 705.83px;
+    bottom: 500px;
+    left: 800px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
+
+
+}
+
+
+.haut{
+    display: grid;
+    stroke: #E7E9EB ;
+    background-color: white;
+    position: relative;
+    top: 5px;
+    z-index: 10;
+    height: 10vh;
+    line-height: 8vh;
+    box-shadow: 5px 5px #E7E9EB ;
+}
+
+
+.connexion{
+   position: relative;
+   left: 1250px;
+   top: -50px;
+}
+
+.logoC{
+    position: relative;
+    left: 850px;
+    top: 26px;
+}
+
+.line{
+    position: relative;
+    width: 49.37px;
+    height: 1px;
+    background-color: #F27054;
+    rotate: 90deg;
+    left: 1085px;
+    top: -85px;
+    
+}
+
+
+.chef{
+    position: relative;
+    width: 519px;
+   height: 629px;
+   top: 250px;
+   left: 470px;
+
+}
+
+
+h3{
+    position: relative;
+    font-family: Public Sans;
+font-size: 36px;
+font-weight: 700;
+line-height: 42px;
+letter-spacing: 0em;
+text-align: center;
+top: 35px;
+
+}
+
+
+p1{
+    position: absolute;
+    font-family: Public Sans;
+font-size: 16px;
+font-weight: 500;
+line-height: 19px;
+letter-spacing: 0em;
+text-align: center;
+left: 115px;
+margin-top: 20px;
+}
+
+
+.email1{
+    position: relative;
+    width: 340px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 0.3rem 1rem;
+    top: 50px;
+    left: 115px;
+    outline: none;
+    background-color: rgba(252, 252, 252, 0);
+}
+
+
+.formulaire{
+    position: absolute;
+    top: 150px;
+}
+
+p2{
+    position: absolute;
+    font-family: Public Sans;
+font-size: 16px;
+font-weight: 500;
+line-height: 19px;
+letter-spacing: 0em;
+text-align: center;
+left: 115px;
+margin-top: 20px;
+}
+
+label{
+    position: absolute;
+    left: 100px;
+    margin-top: 20px;
+}
+
+h7{
+    position: absolute;
+    left: 100px;
+    margin-top: 50px;
+}
+
+.partie{
+    position: relative;
+    margin-bottom: 60px;
+}
+
+
+h5{
+    position: relative;
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 600;
+line-height: 42px;
+letter-spacing: 0em;
+text-align: center;
+top: 5px;
+left: 128px;
+color: #F27054;
+}
+
+
+.seConnecter{
+    position: relative;
+    width: 370px;
+    height: 53px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: none;
+    left: 120px;
+    background-color: #F27054;
+    font-size: 15px;
+    border-radius: 6px;
+    box-shadow: 5px 5px #E7E9EB ;
+}
+
+
+.google{
+    position: absolute;
+    left: 60px;
+    top: 16px;
+}
+
+
+p3{
+    position: relative;
+    left: 50px;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .logoC{
+        left: 350px;
+        
+    }
+    
+
+.connexion{
+   left: 550px;
+
+}
+
+
+
+.line{
+
+    left: 485px;
+
+    
+}
+
+
+.chef{
+
+   left: -70px;
+
+}
+
+.Box-Connexion{
+    
+    left: 260px;
+ 
+
+}
+
+
+}

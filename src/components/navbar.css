@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+	--mainColor: white;
+	--mainColorLight: black;
+	--secondaryColor: #F27054;
+	--textColor: black;
+}
+
+
+.Bar-recherche{
+    position: relative;
+    width: 400px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 1rem;
+    top: 3px;
+    left: 1px;
+    outline: none;
+    background-color: rgba(252, 252, 252, 0);
+    
+}
+
+.Recherche{
+    position: relative;
+    top:-80px;
+    margin-left: 250px;
+}
+
+
+.icon-search{
+    position: relative;
+    top: 5px;
+}
+
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	padding: 0 2rem;
+	background-color: var(--mainColor);
+	color: var(--textColor);
+    box-shadow: 5px 5px #E7E9EB ;
+}
+.fa{
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 15px;
+    height: 20px;
+    width: 20px;
+}
+
+.fa1{
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 22px;
+    height: 20px;
+    width: 20px;
+}
+.a {
+    position: relative;
+	margin: 0 3rem;
+    left: 150px;
+    margin-top: 16px;
+	color: var(--textColor);
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: var(--secondaryColor);
+}
+
+header .nav-btn {
+	padding: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--textColor);
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.8rem;
+}
+
+header div,
+nav {
+	display: flex;
+	align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	header nav {
+		position: absolute;
+		top: -100vh;
+		left: 450px;
+		height: 100%;
+		width: 550px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		background-color: var(--mainColor);
+		transition: 1s;
+	}
+
+
+	header .responsive_nav {
+		transform: translateY(100vh);
+	}
+
+	nav .nav-close-btn {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+	}
+
+	nav a {
+		font-size: 1.5rem;
+	}
+    .icon-search{
+        top: -145px;
+        left: 9px;
+
+    }
+
+    .Bar-recherche{
+       
+        width: 250px;
+        left: 140px;
+		top: -200px;
+        
+    }
+    .a{
+		top: -200px;
+        left: 70px;
+
+    }
+    .fa{
+
+        visibility: hidden;
+
+
+    }
+    
+    .fa1{
+       
+        visibility: hidden;
+    
+    }
+}
