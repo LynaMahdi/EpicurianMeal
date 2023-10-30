@@ -2,21 +2,21 @@
 .TabFiltres{
     position: absolute;
     width:394px;
-    height:965px;
+    height:1065px;
     background-color: white;
     box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
     right: 1556px;
-    top: 282px;
     border-radius: 16px;
-
-
+    margin-top: 200px;
 }
 
 
 .FormGroup{
     position: relative;
-    margin-top: 38px;
+    margin-top: 50px;
+
 }
+
 
 h9{
     position: relative;
@@ -26,25 +26,205 @@ h9{
     line-height: 42px;
     letter-spacing: 0em;
     text-align: center;
-    top: 60px;
-    left: 90px;
+    top: 50px;
+    left: 50px;
     
 }
 
 .groups{
     position: relative;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 
 .FormControl{
-    position: relative;
-    top: 100px;
-    left: 22px;
-    width: 210px;
+    position: absolute;
+    top: 70px;
+    width: 200px;
 }
 
 .InputLabel{
     position: relative;
-    margin-top: 0px;
+    margin-top: 2px;
 }
+
+
+.pagination-controls button {
+
+    position: relative;
+    left: 580px; 
+    background-color: #F27054;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 0 6px;
+    cursor: pointer;
+  }
+
+  
+.pagination-controls{
+  position: absolute;
+  margin-top: 85%;
+  margin-left: 20%;
+}
+
+
+
+  .pagination-controls button:hover {
+    background-color: white;
+    color: black;
+  }
+
+/* DynamicHeightContainer.css */
+.tout {
+    background-color: #f7cdc3;/* Changer la couleur d'arrière-plan en orange */
+    display: flex;
+    margin-top: 150px;
+    flex-direction: column; /* Ajuster la hauteur en fonction des éléments */
+    padding: 10px; /* Ajoutez des marges intérieures pour l'apparence */
+  }
+  
+  /* Pour que le contenu du conteneur s'étire verticalement */
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 50%;
+    margin-top: 50px;
+    margin-left: 750px;
+  }
+  
+
+  .plat {
+    max-width: 100%;
+  }
+  
+  .info {
+    text-align: center;
+  }
+  
+  
+
+
+
+
+  .contenu1{
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    height: 405px;
+    background-color: white;
+    box-shadow: 0 7px 19px rgba(228, 174, 174, 0.5);
+    border-radius: 16px;
+   text-align: center;}
+
+
+
+.contenu1 img{
+
+    width: 100%;
+    height: 200px;
+    border-radius: 6px;
+    left: 8px;
+    top: 8px;
+  
+}
+
+  
+.contenu1 .info{
+    color: black;
+    margin-left: 0px;
+}
+
+.contenu1  h{
+    position: relative;
+    font-weight: 900;
+    top: 25px;
+}
+  
+
+
+/* Media query for mobile screens */
+@media (max-width: 480px ) {
+    .product-list {
+        position: relative;
+        width: 100%;
+        right: 480px;
+        margin: 0; /* Supprimez les marges pour une meilleure adaptation */
+        justify-content: center; /* Centrer les éléments sur une seule colonne */
+      }
+    
+  
+    .contenu1{
+      width: 100%;
+  }
+
+ .pagination-controls button {
+         visibility: hidden;
+      }
+    
+   
+ .TabFiltres{
+    visibility: hidden;
+    }
+
+
+  }
+
+  /* Media query for mobile screens */
+@media (max-width: 780px ) {
+    .product-list {
+        position: relative;
+        width: 100%;
+        right: 480px;
+        margin: 0; /* Supprimez les marges pour une meilleure adaptation */
+        justify-content: center; /* Centrer les éléments sur une seule colonne */
+      }
+    
+  
+    .contenu1{
+      width: 100%;
+  }
+
+ .pagination-controls button {
+         visibility: hidden;
+      }
+    
+   
+ .TabFiltres{
+    visibility: hidden;
+    }
+
+
+  }
+
+  /* Media query for mobile screens */
+@media (max-width: 1280px ) {
+    .product-list {
+      margin-left: 550px;
+    }
+  
+
+   
+ .TabFiltres{
+    position: absolute;
+    width:394px;
+    height:1065px;
+    left: 70px;
+    background-color: white;
+    box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
+    border-radius: 16px;
+    margin-top: 200px;
+
+    }
+
+
+  }
+
+
+
+
+
+

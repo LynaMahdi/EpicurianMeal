@@ -1,6 +1,6 @@
 
 
-.contenu1{
+.contenu5{
    
     width: 295.25px;
     height: 405px;
@@ -11,7 +11,7 @@
    text-align: center;}
 
 
-.plat{
+.plat1{
 
     position: absolute;
     width: 279px;
@@ -22,7 +22,7 @@
   
 }
 
-.contenu1 .info{
+.info1{
     color: black;
     margin-left: 0px;
     margin-top: 180px;
@@ -35,8 +35,61 @@ h{
 }
 
 
-  
-  /* Styles pour les grands écrans */
-  @media (min-width: 1024px) {
-
+.wrapper{
+    position: absolute;
+    width: 100%;
   }
+
+
+  @media (min-width: 280px) {
+    .wrapper{
+        min-width: 280px;
+      }
+    
+}
+  @media (min-width: 540px) {
+    .wrapper{
+        width: 540px;
+      }
+    
+}
+
+@media (min-width: 780px) {
+    .wrapper{
+        min-width: 780px ;
+      }
+    
+}
+
+@media (min-width: 1024px) {
+    .wrapper{
+        min-width: 1020px ;
+      }
+    
+}
+@media (min-width: 1280px) {
+    .wrapper{
+        min-width: 1280px ;
+      }
+    
+}
+
+
+@media (min-width: 1480px) {
+        .wrapper{
+            min-width: 1470px ;
+          }
+        
+    }
+
+
+    @media (min-width: 1900px) {
+        .wrapper{
+            min-width: 100% ;
+          }
+        
+    }
+
+
+
+

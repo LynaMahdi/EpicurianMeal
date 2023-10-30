@@ -5,33 +5,25 @@ import Navbar from "../components/navbar";
 import Recette from "../components/recette";
 import Footer from "../components/footer";
 import Trending from "../components/trending";
-import Filter from "../components/filter";
 import ReCat from "../components/recette_categorie";
 import FilterZ from "../components/filterZ";
+import ProductList from "../components/tst2";
 
 function Home(){
     return(
      
         <>
-            <Navbar/>
+        <Navbar/>
         <img className="image" src={require('./../images/7922893.jpg')} alt='femme' />
         <div className="container1">
-            <img className="populaire" src={require('./../images/Group 18132.png')} alt="titre" />
-            <div className="sliding">
-                <Trending/>
+            <div className="populaire">
+            <img  src={require('./../images/Group 18132.png')} alt="titre" />  
+                  <Trending/>
             </div>
-          
         </div>
 
-        <div className="container2">
-            <div className="contenu">
-                <FilterZ/>
-            </div>
-            <div className="Filtered">
-            </div>
-     
-          
-        </div>
+        
+         <FilterZ/>
 
         <Footer/>
         

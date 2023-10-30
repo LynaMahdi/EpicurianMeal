@@ -9,8 +9,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Splide } from '@splidejs/react-splide';
 import Pagination from '@mui/material/Pagination';
-
-
+import Grid from '@mui/material/Grid';
+import Product from "./card";
 
 function FilterZ() {
     const [Cuisine, setCuisine] = useState('');
@@ -32,7 +32,7 @@ function FilterZ() {
 
     const [filteredData, setFilteredData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const recipesPerPage = 9;
+    const recipesPerPage = 12;
     const handleDietaryPreferenceChange = (preference) => {
         setDietaryPreferences({
             ...dietaryPreferences,
@@ -50,7 +50,7 @@ function FilterZ() {
     useEffect(() => {
         const fetchData = async () => {
             // Construct the URL based on selected filters
-            const apiKey = '821d2d6c62504983bf8d8dd394444d37';
+            const apiKey =  '821d2d6c62504983bf8d8dd394444d37';
             const dietaryFilters = Object.keys(dietaryPreferences).filter((preference) => dietaryPreferences[preference]);
             const allergyFilters = Object.keys(allergies).filter((allergy) => allergies[allergy]);
             const cuisineFilter = Cuisine !== '' ? `&cuisine=${Cuisine}` : '';
@@ -60,7 +60,7 @@ function FilterZ() {
             let apiUrl;
 
             if(cuisineFilter=="" && dietFilter=="" && allergyFilter==""){
-                apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=821d2d6c62504983bf8d8dd394444d37&number=36`;
+                apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=36`;
                 try {
                     const response = await fetch(apiUrl);
                     if (!response.ok) {
@@ -109,7 +109,7 @@ function FilterZ() {
 
     return (
         <div className="tout">
-            <>
+           <div className="tout1"> 
             <div className="TabFiltres">
                 <h1>Filtres</h1>
                 <div className="groups">
@@ -221,57 +221,23 @@ function FilterZ() {
                         </Select>
                     </FormControl>
                 </div>
-            </div>
-        </>
-        <div >
-      <div className="c1">
-        {currentRecipes.map((recipe) => (
-          <Splide
-            key={recipe.id}
-            options={{
-              type: 'loop',
-              arrows: false,
-              height: '14rem',
-              perPage: 2,
-              perMove: 1,
-              grid: {
-                dimensions: [[1, 1], [2, 2], [2, 1], [1, 2], [2, 2], [3, 2]],
-                gap: {
-                  row: '6px',
-                  col: '1px',
-                },
-              },
-              breakpoints: {
-                640: {
-                  height: '8rem',
-                  perPage: 1,
-                  grid: {
-                    dimensions: [[2, 2], [1, 1], [2, 1], [1, 2], [2, 2]],
-                  },
-                },
-              }
-            }}
-          >
-            <div className="contenu1">
-              <img src={recipe.image} alt="plat" className="plat"></img>
-              <div className="info">
-                <h>{recipe.title}</h>
-              </div>
-            </div>
-          </Splide>
-        ))}
-      </div>
-      
-    </div>
-    <div className="pagination-controls">
-        <Pagination
-          count={pageCount}
-          page={currentPage}
-          onChange={handlePageChange}
-        />
-      </div>
         </div>
-    );
+
+
+        <div className="product-list">
+          {currentRecipes.map((recipe) =>(
+                 <Product key={recipe.id} image={recipe.image} title={recipe.title}  />
+            ))}
+        </div>
+      
+      
+        <div className="pagination-controls">
+               <Pagination count={pageCount} page={currentPage} onChange={handlePageChange} />
+        </div>
+      
+        </div>
+    </div>
+);
 }
 
 export default FilterZ;
