@@ -11,12 +11,30 @@
 }
 
 
+  .sidebar-button {
+    display: none; /* Caché par défaut sur les écrans larges */
+    cursor: pointer;
+    padding: 5px;
+    background-color: #F27054;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+  }
+  
+  .tout1.sidebar-open .TabFiltres {
+    right: 0;
+  }
+  
+
 .FormGroup{
     position: relative;
     margin-top: 50px;
 
 }
 
+.tout1.sidebar-open .TabFiltres {
+    right: 0;
+  }
 
 h9{
     position: relative;
@@ -57,21 +75,20 @@ h9{
     color: #fff;
     border: none;
     border-radius: 4px;
-    padding: 5px 10px;
-    margin: 0 6px;
+    margin-bottom: 80px;
     cursor: pointer;
   }
 
   
 .pagination-controls{
-  position: absolute;
-  margin-top: 85%;
+  position: relative;
+  margin-top: -2px;
   margin-left: 20%;
 }
 
 
 
-  .pagination-controls button:hover {
+.pagination-controls button:hover {
     background-color: white;
     color: black;
   }
@@ -86,7 +103,7 @@ h9{
   }
   
   /* Pour que le contenu du conteneur s'étire verticalement */
-  .product-list {
+.product-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -96,11 +113,11 @@ h9{
   }
   
 
-  .plat {
+.plat {
     max-width: 100%;
   }
   
-  .info {
+.info {
     text-align: center;
   }
   
@@ -109,7 +126,7 @@ h9{
 
 
 
-  .contenu1{
+.contenu1{
     width: 30%;
     margin: 10px;
     padding: 10px;
@@ -146,8 +163,16 @@ h9{
   
 
 
-/* Media query for mobile screens */
-@media (max-width: 480px ) {
+
+@media (max-width: 412px ) {
+    .pagination-controls button {
+        left: 12px;
+     }
+   
+}
+
+  /* Media query for mobile screens */
+@media (max-width: 768px ) {
     .product-list {
         position: relative;
         width: 100%;
@@ -161,20 +186,38 @@ h9{
       width: 100%;
   }
 
- .pagination-controls button {
-         visibility: hidden;
+    .pagination-controls button {
+         left: 0px;
       }
     
-   
- .TabFiltres{
-    visibility: hidden;
-    }
-
+      .sidebar-button {
+        display: block; /* Afficher le bouton sur les écrans plus petits */
+        position: absolute;
+        margin-top: 10px;
+        right: 10px;
+      }
+    
+      .TabFiltres {
+          display: none;
+      }
+    
+      /* Styles pour afficher la sidebar des filtres sur les écrans plus petits */
+      .tout1.sidebar-open .TabFiltres {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 90%;
+        height:1065px;
+        margin-top: 0px; 
+        left: 5px;
+        background-color: white;
+        box-shadow: none;
+      }
 
   }
 
-  /* Media query for mobile screens */
-@media (max-width: 780px ) {
+
+  @media (max-width: 820px ) {
     .product-list {
         position: relative;
         width: 100%;
@@ -188,19 +231,37 @@ h9{
       width: 100%;
   }
 
- .pagination-controls button {
-         visibility: hidden;
+    .pagination-controls button {
+         left: 0px;
       }
     
-   
- .TabFiltres{
-    visibility: hidden;
-    }
+      .sidebar-button {
+        display: block; /* Afficher le bouton sur les écrans plus petits */
+        position: absolute;
+        margin-top: 10px;
+        right: 10px;
+      }
+    
+      .TabFiltres {
+          display: none;
+      }
+    
+      /* Styles pour afficher la sidebar des filtres sur les écrans plus petits */
+      .tout1.sidebar-open .TabFiltres {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 90%;
+        height:1065px;
+        margin-top: 0px; 
+        left: 5px;
+        background-color: white;
+        box-shadow: none;
+      }
 
+}
 
-  }
-
-  /* Media query for mobile screens */
+  /* Media query for desktop */
 @media (max-width: 1280px ) {
     .product-list {
       margin-left: 550px;
@@ -213,6 +274,26 @@ h9{
     width:394px;
     height:1065px;
     left: 70px;
+    background-color: white;
+    box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
+    border-radius: 16px;
+    margin-top: 200px;
+
+    }
+
+
+  }
+
+
+  /* Media query for desktop */
+  @media (min-width: 1280px ) {
+
+   
+ .TabFiltres{
+    position: absolute;
+    width:394px;
+    height:1065px;
+    left: 170px;
     background-color: white;
     box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
     border-radius: 16px;

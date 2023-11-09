@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink as Link} from 'react-router-dom';
 import './connexion.css';
-
-
+import './j.css'
 function Connexion(){
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -14,41 +13,39 @@ function Connexion(){
         <>
         <div className="haut">
 
-            <img src={require('./../components/logo.png')} alt='logo' className="logoC"></img>
             <img src={require('./../images/Frame 104.png')} alt='connexion' className="connexion"></img>
-            <div className="line"></div>
 
         </div>
 
 
-        <div>
-           <img src={require('./../images/4246.jpg')} alt='chef' className="chef" ></img>
+        <div className="registration-container">
+        <div className="registration-image">
+          <img src={require('./../images/4246.jpg')} alt='chef'></img>
+        </div>
 
-            <div className="Box-Connexion">
-                <h3>Bienvenue!</h3>
-                <h7>Connectez-vous pour découvrir toutes nos fonctionnalités.</h7>
-                 <div className="formulaire">
-                    <form onSubmit={handleSubmit} >
-                    <div className="partie">
-                     <label>Email</label>
-                     <input type="email" placeholder="Entrez votre email" className="email1"  onChange={e => setEmail(e.target.value)}/>
+            <div className="registration-form">
+            <form onSubmit={handleSubmit} >
+                <h2>Bienvenue!</h2>
+                <p>Connectez-vous pour découvrir toutes nos fonctionnalités.</p>
+                
+                    <div className="form-group">
+
+                     <input type="email" placeholder="Entrez votre email"  onChange={e => setEmail(e.target.value)}/>
                      </div>
 
-                     <div className="partie">
-                     <label>Mot de passe</label>
-                     <input type="password" placeholder="Entrez votre mot de passe" className="email1" onChange={e => setPassword(e.target.value)}/>
+                     <div className="form-group">
+                     <input type="password" placeholder="Entrez votre mot de passe" onChange={e => setPassword(e.target.value)}/>
                      </div>
                      </form>
                      <h5>Mot de passe oublié</h5>
-                     <button className="seConnecter">Se connecter</button>
-                     <button className="seConnecter"  style={{ backgroundColor:`white`}}>
-                        Se connecter avec Google
-                        <img src={require("./../images/download 1.png")} alt="ggl" className="google"></img>
-                     </button>
-
-
-                     <label style={{top: `420px`, left: `165px`}}>Vous n'avez pas de compte ? </label>
-                     <a href='/inscription' activeStyle={{ color: 'red' }}><label style={{top: `420px`, left: `365px`, color: `#F27054`}}>Insrivez-vous</label></a>
+                     <button>Se connecter</button>
+                     <br></br>
+                     <button className="google-button" type="button">
+            Se connecter avec Google
+            <img src={require("./../images/download 1.png")} alt="Google" className="google" />
+          </button>
+        <p>Vous n'avez pas compte? <a href="/inscription">S'inscrire</a></p>
+                  
                  </div>
                  
                 
@@ -56,7 +53,6 @@ function Connexion(){
 
             </div>
 
-        </div>
 
         </>
     )

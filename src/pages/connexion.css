@@ -12,40 +12,27 @@
 }
 
 
+
 .haut{
-    display: grid;
-    stroke: #E7E9EB ;
+    stroke: #E7E9EB;
     background-color: white;
-    position: relative;
-    top: 5px;
-    z-index: 10;
-    height: 10vh;
-    line-height: 8vh;
-    box-shadow: 5px 5px #E7E9EB ;
+    box-shadow: 5px 5px #E7E9EB;
+    padding: 10px;
 }
 
 
-.connexion{
-   position: relative;
-   left: 1250px;
-   top: -50px;
-}
 
 .logoC{
-    position: relative;
-    left: 850px;
-    top: 26px;
+    margin-left: 40%;
+    top: 5px;
 }
 
 .line{
-    position: relative;
     width: 49.37px;
     height: 1px;
     background-color: #F27054;
     rotate: 90deg;
-    left: 1085px;
-    top: -85px;
-    
+    margin-left: -250px;
 }
 
 
@@ -121,6 +108,12 @@ label{
     margin-top: 20px;
 }
 
+h10{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
 h7{
     position: absolute;
     left: 100px;
@@ -148,25 +141,17 @@ color: #F27054;
 
 
 .seConnecter{
-    position: relative;
-    width: 370px;
-    height: 53px;
-    border-radius: 6px;
-    margin-bottom: 20px;
+    width: 50%;
+    padding: 10px;
+    background-color: white;
+    color: #fff;
     border: none;
-    left: 120px;
-    background-color: #F27054;
-    font-size: 15px;
-    border-radius: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 50px;
     box-shadow: 5px 5px #E7E9EB ;
 }
 
-
-.google{
-    position: absolute;
-    left: 60px;
-    top: 16px;
-}
 
 
 p3{
@@ -175,40 +160,97 @@ p3{
 }
 
 
-@media only screen and (max-width: 1480px) {
+@media screen and (max-width: 1480px) {
     .logoC{
         left: 350px;
         
     }
     
-
 .connexion{
    left: 550px;
 
 }
-
-
-
 .line{
 
-    left: 485px;
-
-    
+    left: 485px;   
 }
-
-
 .chef{
 
    left: -70px;
 
 }
-
 .Box-Connexion{
-    
-    left: 260px;
- 
-
+       
+    left: 23%;
 }
 
+
+
+
+}
+@media  (max-width: 768px) {
+    .logoC{
+        margin-left: 30%;
+        
+    }
+
+    .chef{
+        display: none;
+        
+    }
+    .email1{
+        left: 5%;
+    }
+    .Box-Connexion{
+        width: 100%;
+        margin-left: 10px;
+        }
+    .seConnecter{
+        width: 90%;
+    }
+}
+@media  (max-width: 480px) {
+
+    .logoC{
+        display: none;
+        
+    }
+    
+.connexion{
+   margin-left: 30%;
+}
+.line{
+display: none; 
+}
+.partie{
+    left: 20%;
+}
+.chef{
+display: none;
+
+}
+.Box-Connexion{
+    top: 80px;
+    left: 0px;
+    max-width: 480px;
+}
+.email1{
+    left: 10%;
+    width: 100%;
+}
+.seConnecter{
+    left: 30%;
+    width: 100%;
+}
+label{
+    left: 10%;
+}
+
+ h7{
+    left: 15%;
+}
+h5{
+    left: 15%;
+}
 
 }

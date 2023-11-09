@@ -7,10 +7,11 @@ import { InputLabel } from "@mui/material";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { Splide } from '@splidejs/react-splide';
 import Pagination from '@mui/material/Pagination';
-import Grid from '@mui/material/Grid';
 import Product from "./card";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter } from "@fortawesome/free-solid-svg-icons"; // Import the filter icon
+
 
 function FilterZ() {
     const [Cuisine, setCuisine] = useState('');
@@ -106,11 +107,20 @@ function FilterZ() {
   const handlePageChange = (event, page) => {
     setCurrentPage(page);
   };
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+      setShowSidebar(!showSidebar);
+  };
 
     return (
         <div className="tout">
-           <div className="tout1"> 
-            <div className="TabFiltres">
+           <div className={`tout1 ${showSidebar ? 'sidebar-open' : ''}`}>
+           <div className="sidebar-button" onClick={() => toggleSidebar()}>
+                    <FontAwesomeIcon icon={faFilter} />
+                </div>
+               
+      <div className="TabFiltres">
                 <h1>Filtres</h1>
                 <div className="groups">
                     <h9>Régimes</h9>

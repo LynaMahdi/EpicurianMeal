@@ -35,61 +35,45 @@ h{
 }
 
 
-.wrapper{
+
+  .container1 {
+    display: flex;
+    height: 797px;
+    background-color: #f7cdc3;
+    flex-direction: column; /* Assurez-vous que les éléments sont empilés verticalement */
+  }
+  
+
+.populaire{
+    position: relative;
+    width: 40%;
+}
+
+
+/* Styles for smaller screens (e.g., mobile devices) */
+.wrapper {
     position: absolute;
     width: 100%;
+    margin-top: 300px;
+    max-width: 100%; /* Ensure it doesn't exceed 100% width */
+    box-sizing: border-box; /* Include margins and borders in the width */
+    padding: 0 10px; /* Adjust horizontal padding as needed */
   }
-
-
-  @media (min-width: 280px) {
-    .wrapper{
-        min-width: 280px;
-      }
-    
-}
-  @media (min-width: 540px) {
-    .wrapper{
-        width: 540px;
-      }
-    
-}
-
-@media (min-width: 780px) {
-    .wrapper{
-        min-width: 780px ;
-      }
-    
-}
-
-@media (min-width: 1024px) {
-    .wrapper{
-        min-width: 1020px ;
-      }
-    
-}
-@media (min-width: 1280px) {
-    .wrapper{
-        min-width: 1280px ;
-      }
-    
-}
-
-
-@media (min-width: 1480px) {
-        .wrapper{
-            min-width: 1470px ;
-          }
-        
+  
+  /* Adjust padding and other styles for larger screens (e.g., tablets and desktops) */
+  @media screen and (min-width: 768px) {
+    .wrapper {
+      padding: 0 20px; /* Increase horizontal padding for larger screens */
     }
-
-
-    @media (min-width: 1900px) {
-        .wrapper{
-            min-width: 100% ;
-          }
-        
+  }
+  
+  /* Additional styles for even larger screens (e.g., desktops) */
+  @media screen and (min-width: 1024px) {
+    .wrapper {
+      padding: 0 30px; /* Further increase padding for larger screens */
     }
+  }
+  
 
-
-
-
+  
+  

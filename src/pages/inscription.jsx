@@ -25,6 +25,7 @@ function Inscription(){
 
 
         <div>
+          <div className="BBOX">
            <img src={require('./../images/4246.jpg')} alt='chef' className="chef" ></img>
 
             <div className="Box-Connexion">
@@ -58,7 +59,7 @@ function Inscription(){
 
 
             </div>
-
+          </div>  
         </div>
 
         </>

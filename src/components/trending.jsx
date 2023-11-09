@@ -2,7 +2,7 @@ import React, { useEffect, useRef ,useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
-import './trending.css'; // Your custom CSS
+import './trending.css';
 
 function Trending() {
     const [populaire, setPopulaire] = useState([]);
@@ -21,7 +21,10 @@ function Trending() {
     };
 
     return (
-        <div>
+        <div className='container1'>
+          <div className='populaire'>
+            <img  src={require('./../images/Group 18132.png')} alt="titre"  />  
+          </div>
         <div className="wrapper">
                 <Splide  ref={ref}
   options={{

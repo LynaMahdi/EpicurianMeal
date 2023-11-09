@@ -1,25 +1,30 @@
 .link-btn{
-    position: absolute;
-    margin-top: 60px;
-    left: 150px;
-    text-decoration: underline;
-    width: 450px;
-  }
+  position: absolute;
+  margin-top: 60px;
+  left: 150px;
+  text-decoration: underline;
+  width: 450px;
+}
 
 .button{
 
 
 
-    position: relative;
-    width: 340px;
-    height: 53px;
-    border-radius: 6px;
-    top: 40px;
-    border: none;
-    left: 115px;
-    background-color: #F27054;
-    font-size: 15px;
-    border-radius: 6px;
-    box-shadow: 5px 5px #E7E9EB ;
-  }
-  
+  position: relative;
+  width: 340px;
+  height: 53px;
+  border-radius: 6px;
+  top: 40px;
+  border: none;
+  left: 115px;
+  background-color: #F27054;
+  font-size: 15px;
+  border-radius: 6px;
+  box-shadow: 5px 5px #E7E9EB ;
+}
+
+
+.BBOX{
+  position: relative;
+  left: 0px;
+}

@@ -23,7 +23,7 @@
     border-radius: 5px;
     padding: 0.3rem 1rem;
     top: 3px;
-    left: 1px;
+    left: 450px;
     outline: none;
     background-color: rgba(252, 252, 252, 0);
     
@@ -39,6 +39,8 @@
 .icon-search{
     position: relative;
     top: 5px;
+	width: 20%;
+	left: 480px;
 }
 
 
@@ -70,7 +72,7 @@ header {
 .a {
     position: relative;
 	margin: 0 3rem;
-    left: 150px;
+    left: 540px;
     margin-top: 16px;
 	color: var(--textColor);
 	text-decoration: none;
@@ -82,9 +84,11 @@ nav a:hover {
 
 header .nav-btn {
 	padding: 5px;
+	margin-top: 20px;
 	cursor: pointer;
 	background: transparent;
 	border: none;
+	box-shadow: none;
 	outline: none;
 	color: var(--textColor);
 	visibility: hidden;
@@ -102,14 +106,16 @@ nav {
 	header .nav-btn {
 		visibility: visible;
 		opacity: 1;
+		top: 2px;
 	}
 
 	header nav {
-		position: absolute;
+     	position: absolute;
 		top: -100vh;
-		left: 450px;
+		margin-left: 0%;
 		height: 100%;
-		width: 550px;
+		z-index: 1;
+		width: 30%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -126,8 +132,10 @@ nav {
 
 	nav .nav-close-btn {
 		position: absolute;
-		top: 2rem;
-		right: 2rem;
+		top: 0.5rem;
+		margin-left: 100%;
+		opacity: 0;
+		
 	}
 
 	nav a {
@@ -136,6 +144,8 @@ nav {
     .icon-search{
         top: -145px;
         left: 9px;
+		width: 20%;
+
 
     }
 
@@ -164,3 +174,37 @@ nav {
     
     }
 }
+/* ... Vos styles existants ... */
+
+
+
+@media  (min-width: 1025px) and (max-width: 1199px){
+	.a{
+        left: 350px;
+
+    }
+	.Bar-recherche{
+		position: relative;
+		width: 400px;
+		height: 40px;
+		border: none;
+		border-radius: 5px;
+		padding: 0.3rem 1rem;
+		top: 3px;
+		left: 350px;
+		outline: none;
+		background-color: rgba(252, 252, 252, 0);
+		
+	}
+	
+
+	
+	.icon-search{
+		position: relative;
+		top: 3px;
+		width: 20%;
+		left: 380px;
+	}
+	
+}
+
