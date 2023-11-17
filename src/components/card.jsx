@@ -1,14 +1,22 @@
 import React from 'react';
-import './trending.css'
-
-const Product = ({image,title }) => {
+import './filter.css';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+const Product = ({ id,image, title }) => {
   return (
-    <div  className="contenu1">
-      <img src={image} alt='plat'  />
+    <div className="contenu1">
+      <img src={image} alt="plat" />
       <div className="info">
-           <h>{title}</h>
+        <p>{title}</p>
+        <div className="button-container">
+          <button className="like-button">
+            <FavoriteBorderIcon />
+          </button>
+          <NavLink to={'/recette/'+id}>
+         <button className="read-more-button">Voir plus </button> 
+         </NavLink>
+        </div>
       </div>
-
     </div>
   );
 };

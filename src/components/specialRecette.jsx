@@ -1,11 +1,10 @@
 import React, { useEffect, useRef ,useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import Product from './card';
 import '@splidejs/react-splide/css';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import './trending.css';
-
-function Trending() {
+import Product from './card';
+function French() {
     const [populaire, setPopulaire] = useState([]);
     const ref = useRef();
 
@@ -17,16 +16,16 @@ function Trending() {
         const apiKey='821d2d6c62504983bf8d8dd394444d37'
         const apikey2='0a99dc9c27874eb2af7712643ff4d1b8'
         const api = await fetch(
-            `https://api.spoonacular.com/recipes/random?apiKey=${apikey2}&number=9`
+            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apikey2}&cuisine=American`
         );
         const recette = await api.json();
-        setPopulaire(recette.recipes);
+        setPopulaire(recette.results);
     };
 
     return (
         <div className='container1'>
           <div className='populaire'>
-            <img  src={require('./../images/Group 18132.png')} alt="titre"  />  
+            <img  src={require('./../images/Group 18132 (2).png')} alt="titre"  />  
           </div>
         <div className="wrapper">
                 <Splide  ref={ref}
@@ -64,7 +63,7 @@ function Trending() {
         onVisible={(splide, slide) => {
           console.log("visible", slide.index);
         }}>
-                    {populaire.map((recette) => (
+                     {populaire.map((recette) => (
                         <SplideSlide key={recette.id} className="slide">
                                         <Product id={recette.id} image={recette.image} title={recette.title} />
 
@@ -76,4 +75,4 @@ function Trending() {
     );
 }
 
-export default Trending;
+export default French;

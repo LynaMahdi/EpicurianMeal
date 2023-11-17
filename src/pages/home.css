@@ -10,14 +10,54 @@
 }
 
 
+.section{
+    margin-bottom: 250px;
+}
 .Filtered{
     position: absolute;
     margin-top: 160px;
 }
 
+.recherche-bar{
+    position: relative;
+    bottom: 150px;
+    color: black;
+    border-radius: 6px;
+    max-width: 480px;
+    width: 100%;
+    margin-inline: auto;
+    margin-block: 16px 12px;
+    overflow: hidden;
+}
+.recherche-bar .icon{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+}
 
+.search-field{
+    height: 56px;
+    width: 100%;
+    padding-inline: 56px;
+    outline: none;
+}
 
+.search-submit{
+    position: absolute;
+    height: 56px;
+    margin-top: 4px;
+    right: 0px;
+    bottom: 4px;
+    width: 90px;
+    display: grid;
+    place-items: center;
+    background-color: #F27054;
+    color: #fff;
+    border-radius: 6px;
+    
 
+}
 .ArrowL{
     position: absolute;
     bottom: 25px;
@@ -43,10 +83,6 @@
 
 
 
-
-
-
-
 .contenu{
     position: relative;
     width: 1500px;
@@ -55,7 +91,13 @@
     display: grid;
 } 
 
+.apr-bar{
+  
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
 
+}
 
 h1{
     position: relative;
@@ -65,6 +107,25 @@ h1{
 }
 
 
+@media only screen and (max-width: 1480px) {
+
+    .image1{
+        width: 100%;
+        margin-top: 25%;
+    }
+    .recherche-bar{
+        position: relative;
+        bottom: 50px;
+        color: black;
+        border-radius: 6px;
+        max-width: 480px;
+        width: 100%;
+        margin-inline: auto;
+        margin-block: 16px 12px;
+        overflow: hidden;
+    }
+
+}
 
 
 @media only screen and (max-width: 1950px) {
@@ -72,41 +133,47 @@ h1{
         margin-left: 2px;
         width: 50%;
   
-    }
+    } 
     
+    .recherche-bar{
+        position: relative;
+        bottom: 40px;
+        color: black;
+        border-radius: 6px;
+        max-width: 480px;
+        width: 100%;
+        margin-inline: auto;
+        margin-block: 16px 12px;
+        overflow: hidden;
+    }
+    .image1{
+        width: 100%;
+        margin-top: 10%;
+    }
 .container1{
     width: 100%;
    
 
 }
-
 .sliding{
     left: 0px;
     width: 100%;
     margin-top: 20px;
 }
-
-/* Grid.css */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 20px;
-  }
-  
-  .grid-item {
+}
+.grid-item {
     background-color: #3498db;
     color: #fff;
     padding: 20px;
     text-align: center;
-  }
-  
-
-
-
+}
 .Filtered{
     right: 680px;
 }
-
 .contenu{
 
     width: 100%;
@@ -115,12 +182,135 @@ h1{
     display: grid;
 } 
 
+}
+
+@media only screen and (max-width: 2550px) {
+	.image{
+        margin-left: 2px;
+  
+    }   
+    .image1{
+        width: 100%;
+        margin-top: 9%;
+    }
+.container1{
+    width: 100%;
+   
 
 }
+.recherche-bar{
+    position: relative;
+    bottom: 100px;
+    color: black;
+    border-radius: 6px;
+    max-width: 650px;
+    width: 100%;
+    margin-inline: auto;
+    margin-block: 16px 12px;
+    overflow: hidden;
+}
+.sliding{
+    left: 0px;
+    width: 100%;
+    margin-top: 20px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+.grid-item {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.Filtered{
+    right: 680px;
+}
+.contenu{
+
+    width: 100%;
+    margin-left: 20%;
+    bottom: 15px;
+    display: grid;
+} 
+
+}
+
+@media (max-width: 968px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+    .image{
+        visibility: hidden;
+    }
+    .apr-bar{
+  
+        display: grid;
+        grid-template-columns:0px auto;
+        padding: 10px;
+      
+      }
+
+    .recherche-bar{
+        position: relative;
+        bottom: 50px;
+        color: black;
+        border-radius: 6px;
+        max-width: 480px;
+        width: 100%;
+        margin-inline: auto;
+        margin-block: 16px 12px;
+        overflow: hidden;
+    }
+  }
+
 @media (max-width: 768px) {
     .grid-container {
       grid-template-columns: 1fr;
     }
+    .image{
+        visibility: hidden;
+    }
+    .image1{
+        margin-top: 150px;
+        width: 100%;
+    }
+    .recherche-bar{
+        position: relative;
+        bottom: 50px;
+        color: black;
+        border-radius: 6px;
+        max-width: 480px;
+        width: 100%;
+        margin-inline: auto;
+        margin-block: 16px 12px;
+        overflow: hidden;
+    }
+    .apr-bar{
+  
+        display: grid;
+        grid-template-columns:0px auto;
+        padding: 10px;
+      
+      }
   }
 
+  @media (max-width: 520px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+    .image{
+        visibility: hidden;
+    }
+
+    .apr-bar{
+  
+        display: grid;
+        grid-template-columns:0px auto;
+        padding: 10px;
+      
+      }
+  }
   

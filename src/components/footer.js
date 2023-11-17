@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css";
-import logo from "./logo.png"; // Import your logo image
+import logo from "./../images/logo.png"; // Import your logo image
 
 function Footer() {
   return (
@@ -22,7 +22,7 @@ function Footer() {
       </div>
 
       <div className="coté">
-        <img src={logo} alt="logo" className="f" />
+       
         <input placeholder="Entrez votre email" className="email" />
         <button className="subscribe">Subscribe</button>
       </div>

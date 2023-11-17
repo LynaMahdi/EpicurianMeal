@@ -1,15 +1,14 @@
 import React from "react";
-import {useForm} from 'react-hook-form'
 import './profil.css'
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
-function Profil(){
+function Profil({user}){
 
     return(
      
         <>
-            <Navbar/>
+            <Navbar user={user}/>
             <img className="profil" src={require('./../images/Frame 138.png')} alt="mon profil" />
             <div className="container5">
                 <div className="profil-container">

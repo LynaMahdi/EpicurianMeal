@@ -1,14 +1,25 @@
 import './App.css';
+import { useState } from 'react';
 import { BrowserRouter as Router ,Switch,Route} from 'react-router-dom';
-import Home from './pages/home';
 import Connexion from './pages/connexion';
-import Inscription from './pages/inscription';
-import CC from './pages/j';
 import {Helmet} from "react-helmet";
-
+import Favoris from './pages/favoris';
+import Home from './pages/home';
+import Profil from './pages/profil';
+import PageRecette from './pages/recettesT';
+import Detail from './pages/detailR';
+import Inscription from './pages/j';
+import Searched from './pages/searched';
+import Inscription1 from './pages/inscription';
 function App() {
+  const [user, setUser] = useState({});
+  const updateUser = (userData) => {
+    setUser(userData);
+  };
+
   return (
     <>
+    
      <Helmet>
           <meta charSet="utf-8" />
           <title>Epicurian Food</title>
@@ -18,10 +29,14 @@ function App() {
       </Helmet>
        <Router>
       <Switch>
-      <Route path='/' exact component={Home} />
-
-       <Route path='/connexion' exact component={Connexion} />
-       <Route path='/inscription' exact component={CC} />
+      <Route path="/searched/:search" element={<Searched />} />
+      <Route path='/' exact render={() => <Home user={user}/>} />
+       <Route path='/connexion' exact render={() => <Connexion user={user} updateUser={updateUser} />} />
+       <Route path='/inscription' exact component={Inscription1} />
+       <Route path='/favoris' exact render={() => <Favoris user={user}/>}  />
+       <Route path='/recettes'  exact render={() => <PageRecette user={user}/>}  />
+       <Route path='/profil' exact component={Profil} />
+       <Route path='/recette/:name'  exact render={() => <Detail user={user}/>}  />
 
       </Switch></Router>
 

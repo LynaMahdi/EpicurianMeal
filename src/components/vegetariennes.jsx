@@ -1,11 +1,10 @@
 import React, { useEffect, useRef ,useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import Product from './card';
 import '@splidejs/react-splide/css';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import './trending.css';
-
-function Trending() {
+import Product from './card';
+function Vegetariennes() {
     const [populaire, setPopulaire] = useState([]);
     const ref = useRef();
 
@@ -17,19 +16,19 @@ function Trending() {
         const apiKey='821d2d6c62504983bf8d8dd394444d37'
         const apikey2='0a99dc9c27874eb2af7712643ff4d1b8'
         const api = await fetch(
-            `https://api.spoonacular.com/recipes/random?apiKey=${apikey2}&number=9`
+            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apikey2}&diet=vegan`
         );
         const recette = await api.json();
-        setPopulaire(recette.recipes);
+        setPopulaire(recette.results);
     };
 
     return (
         <div className='container1'>
           <div className='populaire'>
-            <img  src={require('./../images/Group 18132.png')} alt="titre"  />  
+            <img  src={require('./../images/vegetariennes.png')} alt="titre"  />  
           </div>
         <div className="wrapper">
-                <Splide  ref={ref}
+        <Splide  ref={ref}
   options={{
     rewind: false,
     perPage: 5,
@@ -76,4 +75,4 @@ function Trending() {
     );
 }
 
-export default Trending;
+export default Vegetariennes;

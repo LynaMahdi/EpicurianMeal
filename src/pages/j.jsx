@@ -1,75 +1,91 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import axios from "axios";
 import './j.css'
-const CC = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-  });
+function Inscription() {
+  const [nom, setName] = useState("");
+  const [adressemail, setEmail] = useState("");
+  const [mdp, setPassword] = useState("");
+  const [error, setError] = React.useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const handleSubmit = async (e) => {
+    if (nom.length === 0) {
+      alert("Veuillez saisir votre nom ");
+    } else if (adressemail.length === 0) {
+      alert("Veuillez saisir votre adresse email");
+    } else if (mdp.length === 0) {
+      alert("Veuillez saisir un mot de passe");
+    } else {
+      const url = "./traitement.php";
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // la logique d'inscription
+      let fdata = new FormData();
+      fdata.append("nom", nom);
+      fdata.append("adressemail", adressemail);
+      fdata.append("mdp", mdp);
+      axios
+        .post(url, fdata)
+        .then((response) => alert(response.data))
+        .catch((error) => alert(error));
+    }
   };
 
   return (
-
     <>
-   <div className="haut">
-
-        <img src={require('./../images/inscription.png')} alt='connexion' className="connexion"></img>
+      <div className="haut">
+        <img
+          src={require("./../images/inscription.png")}
+          alt="connexion"
+          className="connexion"
+        />
         <div className="line"></div>
+      </div>
 
-    </div>
-
-    <div className="registration-container">
+      <div className="registration-container">
         <div className="registration-image">
-          <img src={require('./../images/4246.jpg')} alt='chef'></img>
+          <img src={require("./../images/4246.jpg")} alt="chef" />
         </div>
-    <div className="registration-form">
-      <form onSubmit={handleSubmit}>
-        <h2>Bienvenue!</h2>
-        <p>Inscrivez-vous pour découvrir toutes nos fonctionnalités.</p> {/* Ajout de la phrase ici */}
-
-        <div className="form-group">
-          <input
-            type="text"
-            name="username"
-            placeholder="Nom d'utilisateur"
-            value={formData.username}
-            onChange={handleChange}
-          />
+        <div className="registration-form">
+          {error && <p className="error-message">{error}</p>}
+          <form onSubmit={handleSubmit}>
+            <h2>Bienvenue!</h2>
+            <p>Inscrivez-vous pour découvrir toutes nos fonctionnalités.</p>
+            <div className="form-group">
+              <input
+                type="text"
+                name="nom"
+                placeholder="Nom d'utilisateur"
+                value={nom}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="email"
+                name="adressemail"
+                placeholder="Adresse email"
+                value={adressemail}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="password"
+                name="mdp"
+                placeholder="Mot de passe"
+                value={mdp}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button type="submit" value="Register" onClick={handleSubmit}>
+              S'inscrire
+            </button>
+          </form>
+          <p>
+            Vous avez déjà un compte? <a href="/connexion">Se connecter </a>
+          </p>
         </div>
-        <div className="form-group">
-          <input
-            type="email"
-            name="email"
-            placeholder="Adresse email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            name="password"
-            placeholder="Mot de passe"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">S'inscrire</button>
-      </form>
-      <p>Vous avez déjà un compte? <a href="/connexion">Se connecter </a></p>
-    </div>
-    </div>
+      </div>
     </>
   );
-};
+}
 
-export default CC;
+export default Inscription;

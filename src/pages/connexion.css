@@ -10,30 +10,26 @@
 
 
 }
-
-
-
-.haut{
-    stroke: #E7E9EB;
+.navbar {
     background-color: white;
-    box-shadow: 5px 5px #E7E9EB;
-    padding: 10px;
-}
-
-
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    box-shadow: 5px 5px #E7E9EB ;
+  
+    top: 0;
+    z-index: 20;
+  }
+ 
 
 .logoC{
     margin-left: 40%;
     top: 5px;
 }
 
-.line{
-    width: 49.37px;
-    height: 1px;
-    background-color: #F27054;
-    rotate: 90deg;
-    margin-left: -250px;
-}
 
 
 .chef{
@@ -46,43 +42,6 @@
 }
 
 
-h3{
-    position: relative;
-    font-family: Public Sans;
-font-size: 36px;
-font-weight: 700;
-line-height: 42px;
-letter-spacing: 0em;
-text-align: center;
-top: 35px;
-
-}
-
-
-p1{
-    position: absolute;
-    font-family: Public Sans;
-font-size: 16px;
-font-weight: 500;
-line-height: 19px;
-letter-spacing: 0em;
-text-align: center;
-left: 115px;
-margin-top: 20px;
-}
-
-
-.email1{
-    position: relative;
-    width: 340px;
-    height: 30px;
-    border-radius: 5px;
-    padding: 0.3rem 1rem;
-    top: 50px;
-    left: 115px;
-    outline: none;
-    background-color: rgba(252, 252, 252, 0);
-}
 
 
 .formulaire{
@@ -90,17 +49,6 @@ margin-top: 20px;
     top: 150px;
 }
 
-p2{
-    position: absolute;
-    font-family: Public Sans;
-font-size: 16px;
-font-weight: 500;
-line-height: 19px;
-letter-spacing: 0em;
-text-align: center;
-left: 115px;
-margin-top: 20px;
-}
 
 label{
     position: absolute;
@@ -108,22 +56,7 @@ label{
     margin-top: 20px;
 }
 
-h10{
-    position: absolute;
-    margin-left: 10px;
-    margin-top: 20px;
-}
 
-h7{
-    position: absolute;
-    left: 100px;
-    margin-top: 50px;
-}
-
-.partie{
-    position: relative;
-    margin-bottom: 60px;
-}
 
 
 h5{
@@ -152,12 +85,24 @@ color: #F27054;
     box-shadow: 5px 5px #E7E9EB ;
 }
 
-
-
-p3{
-    position: relative;
-    left: 50px;
+.ReCAPTCHA{
+    margin-left: 25%;
 }
+
+  
+.registration-form p1 {
+    text-align: center;
+    position: relative;
+    top: -80px;
+  }
+  
+.google-button {
+    margin-left: 28%; /* Espacement entre le texte et l'icône */
+    padding: 10px;
+    margin-top: 20px; /* Espacement par défaut par rapport au formulaire */
+  }
+  
+
 
 
 @media screen and (max-width: 1480px) {
@@ -170,9 +115,9 @@ p3{
    left: 550px;
 
 }
-.line{
 
-    left: 485px;   
+h5{
+    left: 15%;
 }
 .chef{
 
@@ -188,19 +133,20 @@ p3{
 
 
 }
-@media  (max-width: 768px) {
+@media  (max-width: 998px) {
     .logoC{
         margin-left: 30%;
         
     }
-
+    h5{
+        left: 15%;
+    }
     .chef{
         display: none;
         
     }
-    .email1{
-        left: 5%;
-    }
+
+
     .Box-Connexion{
         width: 100%;
         margin-left: 10px;
@@ -208,8 +154,16 @@ p3{
     .seConnecter{
         width: 90%;
     }
+    .google-button {
+        margin-left: 25%; /* Espacement entre le texte et l'icône */
+        padding: 10px;
+        margin-top: 20px; /* Espacement par défaut par rapport au formulaire */
+      }
+      
 }
-@media  (max-width: 480px) {
+
+
+@media  (max-width: 880px) {
 
     .logoC{
         display: none;
@@ -219,12 +173,7 @@ p3{
 .connexion{
    margin-left: 30%;
 }
-.line{
-display: none; 
-}
-.partie{
-    left: 20%;
-}
+
 .chef{
 display: none;
 
@@ -234,10 +183,7 @@ display: none;
     left: 0px;
     max-width: 480px;
 }
-.email1{
-    left: 10%;
-    width: 100%;
-}
+
 .seConnecter{
     left: 30%;
     width: 100%;
@@ -246,11 +192,18 @@ label{
     left: 10%;
 }
 
- h7{
-    left: 15%;
-}
+
 h5{
     left: 15%;
 }
+.google-button {
+    margin-left: 25%; /* Espacement entre le texte et l'icône */
+    padding: 10px;
+    margin-top: 20px; /* Espacement par défaut par rapport au formulaire */
+  }
 
+  .ReCAPTCHA{
+    margin-left: 18%;
+}
+  
 }

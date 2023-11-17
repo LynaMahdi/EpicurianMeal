@@ -1,45 +1,90 @@
-import { useRef } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./navbar.css";
-import { FaSearch,FaHeart,FaUser } from "react-icons/fa";
+import {  HamburgetMenuClose, HamburgetMenuOpen } from "./Icons";
 
-function Navbar() {
-	const navRef = useRef();
+function Navbar({user}) {
+  const [click, setClick] = useState(false);
 
-	const showNavbar = () => {
-		navRef.current.classList.toggle(
-			"responsive_nav"
-		);
-	};
+  const handleClick = () => setClick(!click);
+  return (
+    <>
+      <nav className="navbar">
+        <div className="nav-container">
+          <NavLink exact to="/" className="nav-logo">
+          <img src={require("./Icons/logo.jpg")} alt="logo" className="logo"/>  
+          </NavLink>
 
-	return (
-		<header>
-            <img src={require('./logo.png')} alt="logo" className="logo"/>  
-			<nav ref={navRef}>
-            
-                <FaSearch className="icon-search"/>
-                <input type="Search" placeholder="Recherche" className="Bar-recherche"/>
-            <div className="a">
-                <FaHeart className="fa" id="search-icon" />
-				<a href="/#">Favoris</a>
-            </div>
-            <div className="a">
-                <FaUser className="fa1" />
-				<a href="/connexion">Connexion</a>
-            </div>
-				<button className="nav-btn nav-close-btn"  onClick={showNavbar}>
-					<FaTimes />
-				</button>
-			</nav>
-			<button
-				className="nav-btn"
-				onClick={showNavbar}>
-				<FaBars />
-			</button>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
 
-			
-		</header>
-	);
+		  <li className="nav-item">
+              <NavLink
+                exact
+                to="/recettes"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Recettes
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/favoris"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Favoris
+              </NavLink>
+            </li>
+            <li className="nav-item">
+            {Object.keys(user).length !== 0 && (
+        <NavLink
+        exact
+        to="/connexion"
+        activeClassName="active"
+        className="nav-links"
+        onClick={handleClick}
+      >
+        
+        Connexion
+      </NavLink>
+      )}
+           {Object.keys(user).length == 0 && (
+        <NavLink
+        exact
+        to="/connexion"
+        activeClassName="active"
+        className="nav-links"
+        onClick={handleClick}
+      >
+        
+        Deconnexion
+      </NavLink>
+      )}
+              
+            </li>
+
+          </ul>
+          <div className="nav-icon" onClick={handleClick}>
+
+            {click ? (
+				 <span className="icon">
+				 <HamburgetMenuClose />
+			   </span>
+              
+            ) : (
+				<span className="icon">
+                <HamburgetMenuOpen />{" "}
+              </span>
+            )}
+          </div>
+        </div>
+      </nav>
+    </>
+  );
 }
 
 export default Navbar;

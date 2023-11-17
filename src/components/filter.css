@@ -10,8 +10,35 @@
     margin-top: 200px;
 }
 
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+.like-button,
+.read-more-button {
+    padding: 8px 12px;
+    margin-right: 10px;
+    color: #fff;
+    cursor: pointer;
+    width: 90%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+  }
+  
 
-  .sidebar-button {
+.like-button{
+    background-color: white;
+    color: grey;
+    box-shadow: none;
+    width: 50px;
+    margin-left: 15%;
+  }
+
+
+.sidebar-button {
     display: none; /* Caché par défaut sur les écrans larges */
     cursor: pointer;
     padding: 5px;
@@ -21,7 +48,18 @@
     border-radius: 4px;
   }
   
-  .tout1.sidebar-open .TabFiltres {
+
+
+
+.tout1.sidebar-open{
+    background-color: #f7cdc3;/* Changer la couleur d'arrière-plan en orange */
+    display: flex;
+    margin-top: 150px;
+    flex-direction: column; /* Ajuster la hauteur en fonction des éléments */   
+    padding: 10px; /* Ajoutez des marges intérieures pour l'apparence */
+}
+
+.tout1.sidebar-open .TabFiltres {
     right: 0;
   }
   
@@ -70,47 +108,34 @@ h9{
 .pagination-controls button {
 
     position: relative;
-    left: 580px; 
+    left: 560px; 
     background-color: #F27054;
     color: #fff;
     border: none;
     border-radius: 4px;
     margin-bottom: 80px;
     cursor: pointer;
-  }
-
-  
-.pagination-controls{
-  position: relative;
-  margin-top: -2px;
-  margin-left: 20%;
 }
 
 
 
-.pagination-controls button:hover {
-    background-color: white;
-    color: black;
-  }
-
 /* DynamicHeightContainer.css */
-.tout {
+.block {
     background-color: #f7cdc3;/* Changer la couleur d'arrière-plan en orange */
     display: flex;
     margin-top: 150px;
-    flex-direction: column; /* Ajuster la hauteur en fonction des éléments */
+    flex-direction: column; /* Ajuster la hauteur en fonction des éléments */   
     padding: 10px; /* Ajoutez des marges intérieures pour l'apparence */
   }
   
   /* Pour que le contenu du conteneur s'étire verticalement */
 .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 50%;
-    margin-top: 50px;
-    margin-left: 750px;
-  }
+    display: grid;
+    grid-template-columns: 290px 290px 290px 290px 290px;
+    padding: 10px;
+    row-gap: 40px;
+    margin-left: 30%;
+}
   
 
 .plat {
@@ -119,30 +144,25 @@ h9{
   
 .info {
     text-align: center;
+    font-size: 15px;
   }
   
   
 
-
-
-
 .contenu1{
-    width: 30%;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    height: 405px;
     background-color: white;
-    box-shadow: 0 7px 19px rgba(228, 174, 174, 0.5);
-    border-radius: 16px;
-   text-align: center;}
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 30px;
+    text-align: center;
+    width: 250px;
+}
 
 
 
 .contenu1 img{
 
     width: 100%;
-    height: 200px;
     border-radius: 6px;
     left: 8px;
     top: 8px;
@@ -164,145 +184,230 @@ h9{
 
 
 
-@media (max-width: 412px ) {
-    .pagination-controls button {
-        left: 12px;
+@media (min-width: 200px )and (max-width: 350px ) {
+    .product-list {
+        display: grid;
+        grid-template-columns: 290px  ;
+        padding: 10px;
+        row-gap: 40px;
+        margin-left: 5%;
+    }
+
+    .sidebar-button {
+        display: block; /* Afficher le bouton sur les écrans plus petits */
+        position: absolute;
+        margin-top: 10px;
+        right: 10px;
+      }
+    
+      .TabFiltres {
+          display: none;
+      }
+    
+      /* Styles pour afficher la sidebar des filtres sur les écrans plus petits */
+      .tout1.sidebar-open .TabFiltres {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 90%;
+        height:1065px;
+        margin-top: 0px; 
+        left: 5px;
+        background-color: white;
+        box-shadow: none;
+      }
+   
+}
+
+
+@media (min-width: 350px )and (max-width: 650px ) {
+    .product-list {
+        display: grid;
+        grid-template-columns: 290px  ;
+        padding: 10px;
+        row-gap: 40px;
+        margin-left: 5%;
+    }
+
+    .sidebar-button {
+        display: block; /* Afficher le bouton sur les écrans plus petits */
+        position: absolute;
+        margin-top: 10px;
+        right: 10px;
+      }
+    
+      .TabFiltres {
+          display: none;
+      }
+    
+      /* Styles pour afficher la sidebar des filtres sur les écrans plus petits */
+      .tout1.sidebar-open .TabFiltres {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 90%;
+        height:1065px;
+        margin-top: 0px; 
+        left: 5px;
+        background-color: white;
+        box-shadow: none;
+      }
+   
+}
+
+@media (min-width: 650px )and (max-width: 899px ) {
+    .product-list {
+        display: grid;
+        grid-template-columns: 290px 290px ;
+        padding: 10px;
+        row-gap: 40px;
+        margin-left: 5%;
+    }
+
+    .sidebar-button {
+        display: block; /* Afficher le bouton sur les écrans plus petits */
+        position: absolute;
+        margin-top: 10px;
+        right: 10px;
+      }
+    
+      .TabFiltres {
+          display: none;
+      }
+    
+      /* Styles pour afficher la sidebar des filtres sur les écrans plus petits */
+      .tout1.sidebar-open .TabFiltres {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 90%;
+        height:1065px;
+        margin-top: 0px; 
+        left: 5px;
+        background-color: white;
+        box-shadow: none;
+      }
+   
+}
+
+  @media (min-width: 900px )and (max-width: 1045px ) {
+    .product-list {
+        display: grid;
+        grid-template-columns: 290px 290px 290px;
+        padding: 10px;
+        row-gap: 40px;
+        margin-left: 0%;
+    }
+   
+
+    
+      .sidebar-button {
+        display: block; /* Afficher le bouton sur les écrans plus petits */
+        position: absolute;
+        margin-top: 10px;
+        right: 10px;
+      }
+    
+      .TabFiltres {
+          display: none;
+      }
+    
+      /* Styles pour afficher la sidebar des filtres sur les écrans plus petits */
+      .tout1.sidebar-open .TabFiltres {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 90%;
+        height:1065px;
+        margin-top: 0px; 
+        left: 5px;
+        background-color: white;
+        box-shadow: none;
+      }
+
+}
+
+
+
+    
+ /* Media query for desktop */
+@media (min-width: 1046px)and (max-width: 1332px ) {
+
+.product-list {
+        display: grid;
+        grid-template-columns: 290px 290px  ;
+        padding: 10px;
+        row-gap: 40px;
+        margin-left: 45%;
+    }
+   
+ .TabFiltres{
+    position: absolute;
+    width:394px;
+    height:1065px;
+    left: 30px;
+    background-color: white;
+    box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
+    border-radius: 16px;
+    margin-top: 200px;
+
+    }
+
+
+  }
+
+
+  /* Media query for desktop */
+  @media (min-width: 1772px ) {
+
+   
+ .TabFiltres{
+    position: absolute;
+    width:394px;
+    height:1065px;
+    left: 50px;
+    background-color: white;
+    box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
+    border-radius: 16px;
+    margin-top: 200px;
+
+    }
+    .product-list {
+        display: grid;
+        grid-template-columns: 290px 290px 290px 290px   ;
+        padding: 10px;
+        row-gap: 40px;
+        margin-left: 35%;
+    }
+
+
+  }
+  
+  /* Media query for desktop */
+  @media(min-width: 1332px)and (max-width: 1772px ) {
+
+   
+    .TabFiltres{
+       position: absolute;
+       width:394px;
+       height:1065px;
+       left: 50px;
+       background-color: white;
+       box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
+       border-radius: 16px;
+       margin-top: 200px;
+   
+       }
+       .product-list {
+           display: grid;
+           grid-template-columns: 290px 290px 290px  ;
+           padding: 10px;
+           row-gap: 40px;
+           margin-left: 35%;
+       }
+   
+   
      }
-   
-}
-
-  /* Media query for mobile screens */
-@media (max-width: 768px ) {
-    .product-list {
-        position: relative;
-        width: 100%;
-        right: 480px;
-        margin: 0; /* Supprimez les marges pour une meilleure adaptation */
-        justify-content: center; /* Centrer les éléments sur une seule colonne */
-      }
-    
-  
-    .contenu1{
-      width: 100%;
-  }
-
-    .pagination-controls button {
-         left: 0px;
-      }
-    
-      .sidebar-button {
-        display: block; /* Afficher le bouton sur les écrans plus petits */
-        position: absolute;
-        margin-top: 10px;
-        right: 10px;
-      }
-    
-      .TabFiltres {
-          display: none;
-      }
-    
-      /* Styles pour afficher la sidebar des filtres sur les écrans plus petits */
-      .tout1.sidebar-open .TabFiltres {
-        display: block;
-        position: absolute;
-        z-index: 1;
-        width: 90%;
-        height:1065px;
-        margin-top: 0px; 
-        left: 5px;
-        background-color: white;
-        box-shadow: none;
-      }
-
-  }
-
-
-  @media (max-width: 820px ) {
-    .product-list {
-        position: relative;
-        width: 100%;
-        right: 480px;
-        margin: 0; /* Supprimez les marges pour une meilleure adaptation */
-        justify-content: center; /* Centrer les éléments sur une seule colonne */
-      }
-    
-  
-    .contenu1{
-      width: 100%;
-  }
-
-    .pagination-controls button {
-         left: 0px;
-      }
-    
-      .sidebar-button {
-        display: block; /* Afficher le bouton sur les écrans plus petits */
-        position: absolute;
-        margin-top: 10px;
-        right: 10px;
-      }
-    
-      .TabFiltres {
-          display: none;
-      }
-    
-      /* Styles pour afficher la sidebar des filtres sur les écrans plus petits */
-      .tout1.sidebar-open .TabFiltres {
-        display: block;
-        position: absolute;
-        z-index: 1;
-        width: 90%;
-        height:1065px;
-        margin-top: 0px; 
-        left: 5px;
-        background-color: white;
-        box-shadow: none;
-      }
-
-}
-
-  /* Media query for desktop */
-@media (max-width: 1280px ) {
-    .product-list {
-      margin-left: 550px;
-    }
-  
-
-   
- .TabFiltres{
-    position: absolute;
-    width:394px;
-    height:1065px;
-    left: 70px;
-    background-color: white;
-    box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
-    border-radius: 16px;
-    margin-top: 200px;
-
-    }
-
-
-  }
-
-
-  /* Media query for desktop */
-  @media (min-width: 1280px ) {
-
-   
- .TabFiltres{
-    position: absolute;
-    width:394px;
-    height:1065px;
-    left: 170px;
-    background-color: white;
-    box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
-    border-radius: 16px;
-    margin-top: 200px;
-
-    }
-
-
-  }
 
 
 
