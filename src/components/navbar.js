@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
 import {  HamburgetMenuClose, HamburgetMenuOpen } from "./Icons";
-
-function Navbar({user}) {
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+function Navbar({user, updateUser}) {
   const [click, setClick] = useState(false);
-
+  const history = useHistory(); // Initialisation de useHistory
   const handleClick = () => setClick(!click);
+
+  const handleSignOut = (e) => {
+    updateUser({})
+    history.push("/connexion"); // Redirection vers la page recette
+
+  };
   return (
     <>
       <nav className="navbar">
@@ -40,7 +46,7 @@ function Navbar({user}) {
               </NavLink>
             </li>
             <li className="nav-item">
-            {Object.keys(user).length !== 0 && (
+            {Object.keys(user).length == 0 && (
         <NavLink
         exact
         to="/connexion"
@@ -52,13 +58,13 @@ function Navbar({user}) {
         Connexion
       </NavLink>
       )}
-           {Object.keys(user).length == 0 && (
+           {Object.keys(user).length !== 0 && (
         <NavLink
         exact
         to="/connexion"
         activeClassName="active"
         className="nav-links"
-        onClick={handleClick}
+        onClick={handleSignOut }
       >
         
         Deconnexion

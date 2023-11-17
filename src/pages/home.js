@@ -5,11 +5,12 @@ import Footer from "../components/footer";
 import Trending from "../components/trending";
 import French from "../components/specialRecette";
 import Vegetariennes from "../components/vegetariennes";
-function Home({user}){
+function Home({user, updateUser}){
+
     return(
      
         <>
-        <Navbar user={user}/>
+        <Navbar user={user} updateUser={updateUser}/>
         <div className="apr-bar">
             <img className="image" src={require('./../images/7922893.jpg')} alt='femme' />
              <div>

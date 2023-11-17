@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/navbar";
 import './detailR.css'
-const Detail = ({user}) => {
+const Detail = ({user,updateUser}) => {
   const [details, setDetails] = useState({});
 
   const params = useParams();
@@ -35,7 +35,7 @@ const Detail = ({user}) => {
 
   return (
     <>
-    <Navbar user={user}/>
+    <Navbar user={user} updateUser={updateUser}/>
     <h3>{details.title}</h3>
     <Wrapper>
       <div>

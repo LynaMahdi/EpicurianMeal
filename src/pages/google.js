@@ -9,6 +9,8 @@ export default function GoogleAuth({ user, updateUser }) {
     const user = jwtDecode(res.credential);
     console.log("JWT ID Token", user);
     updateUser(user);
+    console.log({user})
+
     redirectToRecette(); // Redirection vers la page recette après la connexion
   }
 
