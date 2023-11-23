@@ -1,7 +1,7 @@
 import React from 'react';
 import './filter.css';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink } from 'react-router-dom';
 const Product = ({ id,image, title }) => {
   return (
     <div className="contenu1">

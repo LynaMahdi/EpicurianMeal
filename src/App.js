@@ -8,9 +8,10 @@ import Home from './pages/home';
 import Profil from './pages/profil';
 import PageRecette from './pages/recettesT';
 import Detail from './pages/detailR';
-import Inscription from './pages/j';
 import Searched from './pages/searched';
 import Inscription1 from './pages/inscription';
+import Mdp from './pages/mdp_oublie';
+import ResetMdp from './pages/reset-mdp';
 function App() {
 
   const [user, setUser] = useState({});
@@ -30,7 +31,7 @@ function App() {
       </Helmet>
        <Router>
       <Switch>
-      <Route path="/searched/:search" element={<Searched />} />
+      <Route path="/searched/:search" exact render={() => <Searched user={user} updateUser={updateUser} />} />
       <Route path='/' exact render={() => <Home user={user} updateUser={updateUser}/>} />
        <Route path='/connexion' exact render={() => <Connexion user={user} updateUser={updateUser} />} />
        <Route path='/inscription' exact component={Inscription1} />
@@ -38,6 +39,8 @@ function App() {
        <Route path='/recettes'  exact render={() => <PageRecette user={user} updateUser={updateUser}/>}  />
        <Route path='/profil'  exact render={() => <Profil user={user} updateUser={updateUser}/>}  />
        <Route path='/recette/:name'  exact render={() => <Detail user={user} updateUser={updateUser}/>}  />
+       <Route path='/Mot-de-passe-oublie'  exact render={() => <Mdp/>}  />
+       <Route path='/Reset-Mot-de-passe-oublie'  exact render={() => <ResetMdp/>}  />
 
       </Switch></Router>
 

@@ -1,12 +1,24 @@
 import React from "react";
 import './home.css'
+import { useState } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Trending from "../components/trending";
 import French from "../components/specialRecette";
 import Vegetariennes from "../components/vegetariennes";
-function Home({user, updateUser}){
+import Search from "../components/barsearch";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+
+
+function Home({user, updateUser}){
+    const [searchTerm, setSearchTerm] = useState("");
+    const history = useHistory();
+  
+    const submitHandler = (e) => {
+      e.preventDefault();
+      history.push(`/searched/${searchTerm}`);
+    };
     return(
      
         <>
@@ -15,12 +27,7 @@ function Home({user, updateUser}){
             <img className="image" src={require('./../images/7922893.jpg')} alt='femme' />
              <div>
             <img className="image1" src={require('./../images/home.png')} alt='recherche' />
-            <div className="recherche-bar">
-            <input className="search-field" type="search" name="search" aria-label="Search recipes" placeholder="Recherchez les recettes..." ></input>
-            <button className="search-submit" aria-label="Submit" >
-                <span>Rechercher</span>
-            </button>
-          </div>
+            <Search/>
           </div>
         </div>
         <div className="section">

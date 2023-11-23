@@ -1,30 +1,57 @@
 import React from "react";
 import './connexion.css';
+import axios from "axios";
+import Mdp from "./mdp_oublie";
 import './inscription.css';
 import { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import GoogleAuth from "./google";
 import { NavLink } from "react-router-dom";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function Connexion({ user, updateUser }){
     const history= useHistory()
     const [captch, setCaptcha] = React.useState(null);
     const [utiliValide, setUtiValide] = React.useState(false);
+    const[responseData,setresponseData]=React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const captcha=useRef(null)
-
-
-    const handleSubmit = (e) => {
+    const location = useLocation()
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      if(captcha.current.getValue()){
+     {/* if(captcha.current.getValue()){
         console.log('Vous netes pas un robot')
         setUtiValide(true)
       }else{
         console.log("acceptez le catcha")
         setUtiValide(false)
+      }*/}
+      if (email.length === 0) {
+        alert("Veuillez saisir votre nom ");
+      } else if (password.length === 0) {
+        alert("Veuillez saisir votre adresse email");
+      } else {
+        const url = "https://linamahdi.alwaysdata.net/connexion.php";
+        const searchParams = new URLSearchParams(location.search);
+        const verification = searchParams.get("verification");
+        let fdata = new FormData();
+        fdata.append("email", email);
+        fdata.append("password", password);
+        fdata.append("verification",verification);
+        try {
+          const response = await axios.post(url, fdata);
+          const m=response.data.trim()
+          setresponseData(response.data.trim());
+         
+          // Utilisez la valeur de verification pour votre logique ici
+          console.log({verification})
+          if (m === 'bienvenue') {
+            history.push("/recettes");
+          } 
+        } catch (error) {
+          alert(error);
+        }
       }
-      history.push("/recettes"); 
 
     };
    
@@ -50,37 +77,41 @@ function Connexion({ user, updateUser }){
         <div className="registration-image">
           <img src={require('./../images/4246.jpg')} alt='chef'></img>
         </div>
-            {!utiliValide &&
+           
             <div className="registration-form">
 
             <form onSubmit={handleSubmit} >
                 <h2>Bienvenue!</h2>
+                      
                 <p>Connectez-vous pour découvrir toutes nos fonctionnalités.</p>
-                
+                {(responseData === 'Email or password do not match.' || responseData==='First verify your account and try again.') ? (
+  <p3>{responseData}</p3>
+):<p2>{responseData}</p2>}
                     <div className="form-group">
-                     <input type="email" placeholder="Entrez votre email"  onChange={e => setEmail(e.target.value)}/>
+                     <input name='email' type="email" placeholder="Entrez votre email"  onChange={e => setEmail(e.target.value)}/>
                     </div>
 
                     <div className="form-group">
-                     <input type="password" placeholder="Entrez votre mot de passe" onChange={e => setPassword(e.target.value)}/>
+                     <input name='password' type="password" placeholder="Entrez votre mot de passe" onChange={e => setPassword(e.target.value)}/>
                     </div>
             </form>
-            <h5>Mot de passe oublié</h5>
+            <a href="/Mot-de-passe-oublie"><h5>Mot de passe oublié</h5></a>
             <ReCAPTCHA className="ReCAPTCHA"
               ref={captcha}
                sitekey="6LfkGRIpAAAAAO6kWKjCehpjSd0ibRw62-7IpTki"
-               onChange={onChange}/>
-
-              <button type="submit" value="Register" onClick={handleSubmit}>
+    onChange={onChange}/>
+              <button name="submit" type="submit" onClick={handleSubmit}>
               Se connecter
             </button>
             <br></br>
+            <br></br>
+
             <div className="google-button">
-              <GoogleAuth  user={user} updateUser={updateUser}/>      
+              <GoogleAuth   user={user} updateUser={updateUser}/>      
             </div>
            <p1>Vous n'avez pas de compte? <a href="/inscription">S'inscrire</a></p1>
           </div>
-}
+
         </div>
       </>
     )

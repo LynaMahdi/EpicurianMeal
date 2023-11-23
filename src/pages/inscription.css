@@ -4,7 +4,9 @@
     justify-content: center;
     margin-top: 50px;
     align-items: center;
-    height: 100vh;
+    height: fit-content;
+
+    
   }
   
 
@@ -58,24 +60,22 @@
     border-radius: 5px;
   }
   
-.button {
+button {
   position: relative;
-  width: 340px;
-  height: 53px;
-  border-radius: 6px;
-  top: 40px;
+  width: 50%;
+  padding: 15px;
+  background-color: #f27054;
   border: none;
-  left: 115px;
-  background-color: #F27054;
-  font-size: 15px;
-  border-radius: 6px;
-  box-shadow: 5px 5px #E7E9EB ;
+  border-radius: 5px;
+  box-shadow: 5px 5px #e7e9eb;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 50px;
 
+}
 
-
-  }
   
-  a {
+a {
     text-decoration: none;
     color: #F27054;
 
@@ -90,6 +90,7 @@
 
     .registration-container {
       flex-direction: column;
+
     }
     
     .registration-image {

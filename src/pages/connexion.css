@@ -1,15 +1,4 @@
-.Box-Connexion{
-    position: relative;
-    width: 600px;
-    height: 705.83px;
-    bottom: 500px;
-    left: 800px;
-    border-radius: 30px;
-    background-color: white;
-    box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
 
-
-}
 .navbar {
     background-color: white;
     height: 80px;
@@ -99,10 +88,17 @@ color: #F27054;
 .google-button {
     margin-left: 28%; /* Espacement entre le texte et l'icône */
     padding: 10px;
+    width: 70%;
     margin-top: 20px; /* Espacement par défaut par rapport au formulaire */
   }
   
+p2{
+    color: green;
+}
 
+p3{
+    color: red;
+}
 
 
 @media screen and (max-width: 1480px) {
@@ -206,4 +202,12 @@ h5{
     margin-left: 18%;
 }
   
+}
+
+.classBar{
+    margin-top: 100px;
+}
+
+.Searchiiie .product-list{
+    margin-left: 20%;
 }

@@ -9,7 +9,7 @@ const Detail = ({user,updateUser}) => {
   const params = useParams();
 
   const fetchDetails = async () => {
-    const apiKey='821d2d6c62504983bf8d8dd394444d37'
+    const apiKey='23fb7cfb07dd46dfa99a286c28fa825c'
     const apiKey2='0a99dc9c27874eb2af7712643ff4d1b8';
 
 

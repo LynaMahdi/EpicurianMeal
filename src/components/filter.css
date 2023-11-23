@@ -1,13 +1,12 @@
 
 .TabFiltres{
-    position: absolute;
+    position: relative;
     width:394px;
     height:1065px;
     background-color: white;
     box-shadow: 0 7px 12px rgba(228, 174, 174, 0.5);
     right: 1556px;
     border-radius: 16px;
-    margin-top: 200px;
 }
 
 .button-container {
@@ -55,6 +54,7 @@
     background-color: #f7cdc3;/* Changer la couleur d'arrière-plan en orange */
     display: flex;
     margin-top: 150px;
+    
     flex-direction: column; /* Ajuster la hauteur en fonction des éléments */   
     padding: 10px; /* Ajoutez des marges intérieures pour l'apparence */
 }
@@ -120,13 +120,18 @@ h9{
 
 
 /* DynamicHeightContainer.css */
-.block {
+.tout{
     background-color: #f7cdc3;/* Changer la couleur d'arrière-plan en orange */
-    display: flex;
     margin-top: 150px;
-    flex-direction: column; /* Ajuster la hauteur en fonction des éléments */   
     padding: 10px; /* Ajoutez des marges intérieures pour l'apparence */
+    display: grid;
+    grid-template-columns: auto auto ;
+    height: fit-content;
+
+    padding: 10px;
   }
+
+
   
   /* Pour que le contenu du conteneur s'étire verticalement */
 .product-list {
@@ -372,6 +377,7 @@ h9{
     margin-top: 200px;
 
     }
+
     .product-list {
         display: grid;
         grid-template-columns: 290px 290px 290px 290px   ;

@@ -7,7 +7,6 @@ function Navbar({user, updateUser}) {
   const [click, setClick] = useState(false);
   const history = useHistory(); // Initialisation de useHistory
   const handleClick = () => setClick(!click);
-
   const handleSignOut = (e) => {
     updateUser({})
     history.push("/connexion"); // Redirection vers la page recette

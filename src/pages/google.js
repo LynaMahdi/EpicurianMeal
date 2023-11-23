@@ -10,8 +10,7 @@ export default function GoogleAuth({ user, updateUser }) {
     console.log("JWT ID Token", user);
     updateUser(user);
     console.log({user})
-
-    redirectToRecette(); // Redirection vers la page recette après la connexion
+    redirectToRecette(); 
   }
 
   useEffect(() => {
@@ -24,6 +23,8 @@ export default function GoogleAuth({ user, updateUser }) {
     window.google.accounts.id.renderButton(document.getElementById("signInDiv"), {
       theme: "outline",
       size: "large",
+      width: "50px"
+    
     });
 
     window.google.accounts.id.prompt();

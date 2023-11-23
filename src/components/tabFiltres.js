@@ -7,6 +7,7 @@ import { InputLabel } from "@mui/material";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import './filter.css'
 
 const Filter = ({
   dietaryPreferences,

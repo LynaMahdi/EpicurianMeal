@@ -131,8 +131,8 @@ h1{
 @media only screen and (max-width: 1950px) {
 	.image{
         margin-left: 2px;
-        width: 50%;
-  
+        width: 90%;
+        height: 100%;
     } 
     
     .recherche-bar{

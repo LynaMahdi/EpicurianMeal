@@ -5,8 +5,7 @@ import Product from "./card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons"; // Import the filter icon
 import { fetchRecipes } from './api'; // Import the fetchRecipes function
-import Navbar from "./navbar";
-import Footer from "./footer";
+
 
 function FilterZ() {
   const [Cuisine, setCuisine] = useState('');
@@ -62,6 +61,8 @@ function FilterZ() {
   return (
     <>
     <div className="tout">
+    <div className="grid">
+
       <div className={`tout1 ${showSidebar ? 'sidebar-open' : ''}`}>
         <div className="sidebar-button" onClick={() => toggleSidebar()}>
           <FontAwesomeIcon icon={faFilter} />
@@ -74,12 +75,14 @@ function FilterZ() {
           handleAllergiesChange={handleAllergiesChange}
           setCuisine={setCuisine}
         />
+        </div>
+        <div className="grid">
         <div className="product-list">
           {filteredData.map((recipe) => (
             <Product id={recipe.id} image={recipe.image} title={recipe.title} />
           ))}
         </div>
-
+        </div>
       </div>
     </div>
     </>
