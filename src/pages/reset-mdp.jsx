@@ -31,7 +31,6 @@ function ResetMdp(){
               const m = response.data.trim();
               setResponseData(m)
               console.log(m);
-              alert(response.data)
               if (m === 'connexion') {
                 history.push("/connexion");
               } 

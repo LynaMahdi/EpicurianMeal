@@ -18,7 +18,7 @@ function Vegetariennes() {
         const apiKey3='23fb7cfb07dd46dfa99a286c28fa825c'
 
         const api = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey3}&diet=vegan`
+            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&diet=vegan`
         );
         const recette = await api.json();
         setPopulaire(recette.results);
@@ -27,7 +27,7 @@ function Vegetariennes() {
     return (
         <div className='container1'>
           <div className='populaire'>
-            <img  src={require('./../images/vegetariennes.png')} alt="titre"  />  
+            <img  src={require('./../images/Group 18132 (4).png')} alt="titre"  />  
           </div>
         <div className="wrapper">
         <Splide  ref={ref}
@@ -35,7 +35,7 @@ function Vegetariennes() {
     rewind: false,
     perPage: 5,
     perMove: 5,
-    gap: 320,
+    gap: 20,
     padding: "2rem",
     pagination: false,
     breakpoints: {

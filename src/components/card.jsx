@@ -1,20 +1,91 @@
-import React from 'react';
-import './filter.css';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import React, { useState, useEffect} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+
 import { NavLink } from 'react-router-dom';
-const Product = ({ id,image, title }) => {
+import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as farHeart, faHeart as fasHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
+
+const Product = ({ id, image, title }) => {
+  const [favoritedItems, setFavoritedItems] = useState({});
+
+  const addToFavorites = async (recipeId) => {
+    let userEmail = sessionStorage.getItem('userEmail');
+    try {
+      const fdata = new FormData();
+      fdata.append('id', recipeId);
+      fdata.append('userEmail', userEmail);
+      fdata.append('image', image); // Assure-toi que 'image' est défini
+      fdata.append('title', title); // Assure-toi que 'title' est défini
+  
+      let url = 'https://linamahdi.alwaysdata.net/favoris.php'; // Endpoint pour ajouter aux favoris
+      const response = await axios.post(url,fdata);
+      const responseData = response.data;
+      console.log(responseData);
+
+      // Mettre à jour l'état local avec un nouvel objet contenant les états favoris mis à jour
+      setFavoritedItems({ ...favoritedItems, [recipeId]: true });
+    } catch (error) {
+      console.error('Erreur lors de l\'ajout aux favoris :', error);
+    }
+  };
+
+  const removeFromFavorites = async (recipeId) => {
+    let userEmail = sessionStorage.getItem('userEmail');
+    try {
+      const fdata = new FormData();
+      fdata.append('id', recipeId);
+      fdata.append('userEmail', userEmail);
+      fdata.append('image', image); // Assure-toi que 'image' est défini
+      fdata.append('title', title); // Assure-toi que 'title' est défini
+  
+      let url = 'https://linamahdi.alwaysdata.net/remove-favoris.php'; // Endpoint pour supprimer des favoris
+      const response = await axios.post(url, fdata);
+      const responseData = response.data;
+      console.log(responseData);
+
+      // Mettre à jour l'état local avec un nouvel objet contenant les états favoris mis à jour
+      setFavoritedItems({ ...favoritedItems, [recipeId]: false });
+    } catch (error) {
+      console.error('Erreur lors de la suppression des favoris :', error);
+    }
+  };
+
+  const handleFavorite = (recipeId) => {
+    if (favoritedItems[recipeId]) {
+      removeFromFavorites(recipeId);
+    } else {
+      addToFavorites(recipeId);
+    }
+  };
+
+  const isFavorited = favoritedItems[id] || false; // Obtient l'état pour cet article
+
+
   return (
-    <div className="contenu1">
-      <img src={image} alt="plat" />
-      <div className="info">
-        <p>{title}</p>
-        <div className="button-container">
-          <button className="like-button">
-            <FavoriteBorderIcon />
-          </button>
-          <NavLink to={'/recette/'+id}>
-         <button className="read-more-button">Voir plus </button> 
-         </NavLink>
+    <div className="col-sm mb-5 ml-8"> {/* Ajout de la classe mb-4 pour l'espacement */}
+      <div className="card card-cascade card-ecommerce wider shadow mb-5 h-100 ms-5">
+        <div className="view view-cascade overlay text-center">
+          <img className="card-img-top" src={image} alt="" />
+          <a>
+            <div className="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+        <div className="card-body card-body-cascade text-center">
+          
+          <p className="card-text">{title}</p>
+          <br></br>
+          <div className="card-footer position-absolute bottom-0 start-0 end-0 bg-transparent">
+          <button className="btn bg-transparent" onClick={() => handleFavorite(id)}>
+            <FontAwesomeIcon icon={isFavorited ?   solidHeart: farHeart } />
+            </button>
+            <NavLink to={`/recette/${id}`}>
+              <button className="btn btn-primary profile-button">Voir plus</button>
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>

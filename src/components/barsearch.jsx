@@ -12,9 +12,9 @@ const Search = () => {
 
   return (
     <div className="recherche-bar">
-            <input className="search-field" type="search" name="search" aria-label="Search recipes" placeholder="Recherchez les recettes..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+            <input className="search-field" type="search" name="search" aria-label="Search recipes" placeholder="Search recipes..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
             <button className="search-submit" aria-label="Submit"  onClick={submitHandler}>
-                <span>Rechercher</span>
+                <span>Search</span>
             </button>
     </div>
   );

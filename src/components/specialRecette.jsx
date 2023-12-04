@@ -18,7 +18,7 @@ function French() {
         const apiKey3='23fb7cfb07dd46dfa99a286c28fa825c'
 
         const api = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey3}&cuisine=American`
+            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&cuisine=American`
         );
         const recette = await api.json();
         setPopulaire(recette.results);
@@ -27,7 +27,7 @@ function French() {
     return (
         <div className='container1'>
           <div className='populaire'>
-            <img  src={require('./../images/Group 18132 (2).png')} alt="titre"  />  
+            <img  src={require('./../images/Group 18132 (5).png')} alt="titre"  />  
           </div>
         <div className="wrapper">
                 <Splide  ref={ref}
@@ -35,7 +35,7 @@ function French() {
     rewind: false,
     perPage: 5,
     perMove: 5,
-    gap: 320,
+    gap: 20,
     padding: "2rem",
     pagination: false,
     breakpoints: {

@@ -1,3 +1,6 @@
+.SplideSlide {
+  height: 500px; /* ou toute autre valeur souhaitée */
+}
 
 
 .contenu5{
@@ -39,7 +42,7 @@ h{
 
   .container1 {
     display: flex;
-    height: 797px;
+    height: 787px;
     background-color: #f7cdc3;
     flex-direction: column; /* Assurez-vous que les éléments sont empilés verticalement */
   }

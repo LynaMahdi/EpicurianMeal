@@ -13,9 +13,9 @@ export const fetchRecipes = async ({ cuisine, dietaryPreferences, allergies }) =
   let apiUrl;
 
   if (cuisineFilter === '' && dietFilter === '' && allergyFilter === '') {
-    apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey3}&number=36`;
+    apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey2}&number=36`;
   } else {
-    apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey3}${cuisineFilter}${dietFilter}${allergyFilter}`;
+    apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}${cuisineFilter}${dietFilter}${allergyFilter}`;
   }
 
   try {

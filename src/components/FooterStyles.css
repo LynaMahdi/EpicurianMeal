@@ -1,0 +1,67 @@
+/* FooterStyles.css */
+
+/* Boox */
+.Boox {
+    padding: 5% 2.5%;
+    background: black;
+    /* position: absolute; */
+    bottom: 0;
+    width: 95%;
+  }
+  
+  @media (max-width: 1000px) {
+    /* padding: 70px 30px; */
+  }
+  
+  /* FooterContainer */
+  .FooterContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    /* background: red; */
+  }
+  
+  /* Column */
+  .Column {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 60px;
+  }
+  
+  /* Row */
+  .Row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  @media (max-width: 1000px) {
+    .Row {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  
+  /* FooterLink */
+  .FooterLink {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  
+  .FooterLink:hover {
+    color: green;
+    transition: 200ms ease-in;
+  }
+  
+  /* Heading */
+  .Heading {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+  

@@ -1,7 +1,6 @@
 import React from "react";
 import './connexion.css';
 import axios from "axios";
-import Mdp from "./mdp_oublie";
 import './inscription.css';
 import { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -9,14 +8,18 @@ import GoogleAuth from "./google";
 import { NavLink } from "react-router-dom";
 import { useLocation, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function Connexion({ user, updateUser }){
+
+  
     const history= useHistory()
     const [captch, setCaptcha] = React.useState(null);
-    const [utiliValide, setUtiValide] = React.useState(false);
     const[responseData,setresponseData]=React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const captcha=useRef(null)
     const location = useLocation()
+
+
+
     const handleSubmit = async (e) => {
       e.preventDefault();
      {/* if(captcha.current.getValue()){
@@ -39,17 +42,20 @@ function Connexion({ user, updateUser }){
         fdata.append("password", password);
         fdata.append("verification",verification);
         try {
-          const response = await axios.post(url, fdata);
-          const m=response.data.trim()
-          setresponseData(response.data.trim());
-         
-          // Utilisez la valeur de verification pour votre logique ici
-          console.log({verification})
-          if (m === 'bienvenue') {
-            history.push("/recettes");
-          } 
+          const response = await axios.post(url, fdata, {
+            withCredentials: true  // Indique au navigateur d'envoyer les cookies de session
+          });
+          const responseData = response.data;
+          console.log(responseData)
+          if (responseData.message === 'bienvenue') {
+            sessionStorage.setItem('userEmail', email);
+            console.log(sessionStorage)
+            history.push("/recettes"); // Rediriger vers la page des recettes
+          } else {
+            setresponseData(responseData.message);
+          }
         } catch (error) {
-          alert(error);
+          console.error('Erreur lors de la requête:', error);
         }
       }
 
@@ -67,7 +73,7 @@ function Connexion({ user, updateUser }){
          
         <div className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
+          <NavLink exact to="/connexion" className="nav-logo">
           <img src={require('./../images/Frame 104.png')} alt='connexion' className="connexion"></img>
 
           </NavLink>
@@ -96,10 +102,10 @@ function Connexion({ user, updateUser }){
                     </div>
             </form>
             <a href="/Mot-de-passe-oublie"><h5>Mot de passe oublié</h5></a>
-            <ReCAPTCHA className="ReCAPTCHA"
+          {/*  <ReCAPTCHA className="ReCAPTCHA"
               ref={captcha}
                sitekey="6LfkGRIpAAAAAO6kWKjCehpjSd0ibRw62-7IpTki"
-    onChange={onChange}/>
+                onChange={onChange}/>*/}
               <button name="submit" type="submit" onClick={handleSubmit}>
               Se connecter
             </button>

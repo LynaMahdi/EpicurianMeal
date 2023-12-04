@@ -1,11 +1,3 @@
-/* Footer Styles */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-}
 
 .coté {
   flex: 1;
@@ -35,49 +27,79 @@ ul li {
 img.f {
   width: 100px;
   height: 100px;
+  margin-bottom: 80px;
 }
 
-.email {
-  width: 220px;
-  height: 30px;
-  padding: 0.3rem 1rem;
-  background-color: rgba(252, 252, 252, 0);
-  border-radius: 5px;
-  padding: 0.3rem 1rem;
-  margin-top: 20px;
+  /* FooterStyles.css */
+
+/* Boox */
+.Boox {
+  padding: 5% 2.5%;
+  background: white;
+  /* position: absolute; */
+  bottom: 0;
+  width: 95%;
+}
+
+@media (max-width: 1000px) {
+  /* padding: 70px 30px; */
+}
+
+/* FooterContainer */
+.FooterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  /* background: red; */
+}
+
+/* Column */
+.Column {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 60px;
 }
 
 
 
-.subscribe {
 
-  background-color: #F27054;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  height: 40px;
-  width: 100px;
-  margin-top: 20px;
+/* Row */
+.Row {
+  display: grid;
+  grid-template-columns: 450px 250px 250px;
+  grid-gap: 20px;
 }
 
-/* Responsive Styles */
-@media only screen and (max-width: 724px) {
-  .footer {
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5px;
+@media (max-width: 1000px) {
+  .Row {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  
-  .coté {
-    margin: 5px 0;
-    text-align: center;
-    color: black;
-  }
-
-  .email, .subscribe {
-    width: 100%;
-    text-align: center;
-    margin-left: 0;
-  }
-
 }
+
+/* FooterLink */
+.FooterLink {
+  color: black;
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.FooterLink:hover {
+  color: #F27054;
+  transition: 200ms ease-in;
+}
+
+/* Heading */
+.Heading {
+  font-size: 24px;
+  color: black;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+
+
+

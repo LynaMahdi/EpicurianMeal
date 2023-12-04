@@ -52,7 +52,7 @@ const Inscription1 = () => {
     <>
       <div className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
+          <NavLink exact to="/inscription" className="nav-logo">
             <img
               src={require("./../images/inscription.png")}
               alt="connexion"

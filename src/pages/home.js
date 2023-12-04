@@ -26,7 +26,7 @@ function Home({user, updateUser}){
         <div className="apr-bar">
             <img className="image" src={require('./../images/7922893.jpg')} alt='femme' />
              <div>
-            <img className="image1" src={require('./../images/home.png')} alt='recherche' />
+            <img className="image1" src={require('./../images/Group 18134.png')} alt='recherche' />
             <Search/>
           </div>
         </div>

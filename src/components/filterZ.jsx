@@ -64,9 +64,11 @@ function FilterZ() {
     <div className="grid">
 
       <div className={`tout1 ${showSidebar ? 'sidebar-open' : ''}`}>
+
         <div className="sidebar-button" onClick={() => toggleSidebar()}>
           <FontAwesomeIcon icon={faFilter} />
         </div>
+
         <Filter
           dietaryPreferences={dietaryPreferences}
           allergies={allergies}
@@ -75,14 +77,14 @@ function FilterZ() {
           handleAllergiesChange={handleAllergiesChange}
           setCuisine={setCuisine}
         />
-        </div>
-        <div className="grid">
-        <div className="product-list">
-          {filteredData.map((recipe) => (
-            <Product id={recipe.id} image={recipe.image} title={recipe.title} />
-          ))}
-        </div>
-        </div>
+
+           <div className="product-list">
+              {filteredData.map((recipe) => (
+                <Product id={recipe.id} image={recipe.image} title={recipe.title} />
+              ))}
+           </div>
+
+      </div>
       </div>
     </div>
     </>
