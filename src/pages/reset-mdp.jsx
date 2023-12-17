@@ -18,10 +18,9 @@ function ResetMdp(){
           }else if (repassword.length === 0) {
             alert("Veuillez saisir votre adresse email");
           }  else {
-            const url = "https://linamahdi.alwaysdata.net/reset-mot-de-passe.php";
+            const url = "localhost/reset-mot-de-passe.php";
             const searchParams = new URLSearchParams(location.search);
             const verification = searchParams.get("verification");
-            console.log({verification})
             let fdata = new FormData();
             fdata.append("password", password);
             fdata.append("repassword", repassword);
@@ -30,7 +29,6 @@ function ResetMdp(){
               const response = await axios.post(url, fdata);
               const m = response.data.trim();
               setResponseData(m)
-              console.log(m);
               if (m === 'connexion') {
                 history.push("/connexion");
               } 
@@ -64,16 +62,16 @@ function ResetMdp(){
 
             <form onSubmit={handleSubmit} >
                 <h2>Bienvenue!</h2>
-                <p>Changez votre mot de passe pour découvrir toutes nos fonctionnalités.</p>
+                <p>Change your password to discover our fonctionnalities.</p>
                 {(responseData === 'code do not exist' || responseData==='Password and Confirm Password do not match') ? (
   <p3>{responseData}</p3>
 ):<p2>{responseData}</p2>}
                 <div className="form-group">
-                     <input name='password' type="password" placeholder="Entrez votre mot de passe" onChange={e => setPassword(e.target.value)}/>
+                     <input name='password' type="password" placeholder="Enter your password" onChange={e => setPassword(e.target.value)}/>
                 </div>
 
                 <div className="form-group">
-                     <input name='repassword' type="password" placeholder="Confirmez votre mot de passe" onChange={e => setRePassword(e.target.value)}/>
+                     <input name='repassword' type="password" placeholder="Confirm your password" onChange={e => setRePassword(e.target.value)}/>
                 </div>
                     
             </form>
@@ -84,7 +82,7 @@ function ResetMdp(){
             </button>
             <br></br>
             
-           <p>Revenir à la <a href="/connexion">connexion?</a></p>
+           <p>Return to <a href="/connexion">Login?</a></p>
           </div>
 
         </div>

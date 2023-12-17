@@ -1,78 +1,70 @@
 <<<<<<< HEAD
-# EpicurianFood
+
+# EpicurianMeal
+
 =======
-<<<<<<< HEAD
-# EpicurianFood
-=======
+
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+EpicureanMeal is a Recipe Finder that allows users to search for recipes using the Spoonacular API. Users can view recipes, add them to favorites, and explore various dishes.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+Add your
+individual information
 
-### `npm start`
+SPOONACULAR_API_KEY=
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Change the URLs of the PHP files in the React application so that they point to your own local services.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The functionalities present in the website are:
 
-### `npm run build`
+- Search for a recipe by its name or ingredients. (Spoonacular API)
+- Create a new user's account.
+- Receive a welcome email upon creating a new account. (Sendgrid)
+- Log in an existing account.
+- Read description, preparing instructions, and see ingredient images of recipes.
+- Mark recipes as favorites.
+- Manage your favorite recipes list.
+- Manage your account (change password and delete account).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Front-end:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- JavaScript
+- React
 
-### `npm run eject`
+#### Back-end:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Node.js
+- PHP
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## External APIs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [Spoonacular API](https://spoonacular.com/food-api)
+- [Google API]
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+### Prerequisites
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Node.js and npm installed
+- PHP server set up
+- Spoonacular API key
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation
 
-### Code Splitting
+1. Clone the repository: `git clone https://github.com/LynaMahdi/EpicurianMeal.git`
+2. Install dependencies: `npm install`
+3. Set up your Spoonacular API key in the backend PHP files.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> 19f8d55 (màj)
->>>>>>> 47cf8c3 (màj)
+1. Start your PHP server.
+2. Run the React app: `npm start`
+3. Access the app in your browser at `http://localhost:3000`

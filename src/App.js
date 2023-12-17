@@ -26,7 +26,7 @@ function App() {
     
      <Helmet>
           <meta charSet="utf-8" />
-          <title>Epicurian Food</title>
+          <title>Epicurian Meal</title>
           <link rel="canonical" href="http://mysite.com/example" />
           <meta name="description" content="site web de recette culinaire" />
 
@@ -39,7 +39,7 @@ function App() {
        <Route path='/inscription' exact component={Inscription1} />
        <Route path='/favoris' exact render={() => <Favoris user={user} updateUser={updateUser}/>}  />
        <Route path='/recettes'  exact render={() => <PageRecette user={user} updateUser={updateUser}/>}  />
-       <Route path='/profile'  exact render={() => <Formulaire/>}  />
+       <Route path='/profile'  exact render={() => <Formulaire user={user} updateUser={updateUser}/>}  />
        <Route path='/recette/:name'  exact render={() => <Detail user={user} updateUser={updateUser}/>}  />
        <Route path='/Mot-de-passe-oublie'  exact render={() => <Mdp/>}  />
        <Route path='/Reset-Mot-de-passe-oublie'  exact render={() => <ResetMdp/>}  />

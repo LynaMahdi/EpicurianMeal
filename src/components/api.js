@@ -2,6 +2,8 @@
 const apiKey = '0a99dc9c27874eb2af7712643ff4d1b8';
 const apiKey2='821d2d6c62504983bf8d8dd394444d37'
 const apiKey3='23fb7cfb07dd46dfa99a286c28fa825c'
+const apiKey4='3210da7ed0e5412fad84b8d8b8757610'
+
 
 export const fetchRecipes = async ({ cuisine, dietaryPreferences, allergies }) => {
   const dietaryFilters = Object.keys(dietaryPreferences).filter((preference) => dietaryPreferences[preference]);
@@ -13,9 +15,9 @@ export const fetchRecipes = async ({ cuisine, dietaryPreferences, allergies }) =
   let apiUrl;
 
   if (cuisineFilter === '' && dietFilter === '' && allergyFilter === '') {
-    apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey2}&number=36`;
+    apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey3}&number=36`;
   } else {
-    apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}${cuisineFilter}${dietFilter}${allergyFilter}`;
+    apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey3}${cuisineFilter}${dietFilter}${allergyFilter}`;
   }
 
   try {

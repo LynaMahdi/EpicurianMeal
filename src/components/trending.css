@@ -57,7 +57,7 @@ h{
 /* Styles for smaller screens (e.g., mobile devices) */
 .wrapper {
     position: absolute;
-    width: 100%;
+    height: 700px;
     margin-top: 300px;
     max-width: 100%; /* Ensure it doesn't exceed 100% width */
     box-sizing: border-box; /* Include margins and borders in the width */
@@ -67,6 +67,7 @@ h{
   /* Adjust padding and other styles for larger screens (e.g., tablets and desktops) */
   @media screen and (min-width: 768px) {
     .wrapper {
+
       padding: 0 20px; /* Increase horizontal padding for larger screens */
     }
   }
@@ -74,6 +75,7 @@ h{
   /* Additional styles for even larger screens (e.g., desktops) */
   @media screen and (min-width: 1024px) {
     .wrapper {
+
       padding: 0 30px; /* Further increase padding for larger screens */
     }
   }

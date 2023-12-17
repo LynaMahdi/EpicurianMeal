@@ -16,7 +16,6 @@ export default function PageRecette({ user, updateUser }) {
     const checkSession = () => {
         // Retrieve the stored value from sessionStorage
         const userEmail = sessionStorage.getItem('userEmail');
-        console.log(userEmail)
     
         if (userEmail==null) {
           history.push('/connexion')
@@ -26,12 +25,16 @@ export default function PageRecette({ user, updateUser }) {
       useEffect(() => {
         checkSession();
       }, []);
-      
+
+      const blockStyles = {
+        backgroundColor: 'orange',
+        /* Autres styles si nécessaire */
+    };
 
     return (
         <>
             <Navbar user={user} updateUser={updateUser} />
-            <div className="block">
+            <div className="block" style={blockStyles}>
                 <FilterZ />
             </div>
             <Footer />

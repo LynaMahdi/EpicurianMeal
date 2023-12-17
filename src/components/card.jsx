@@ -1,16 +1,18 @@
 import React, { useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
-
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart, faHeart as fasHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
-
+import './filter.css'
 const Product = ({ id, image, title }) => {
   const [favoritedItems, setFavoritedItems] = useState({});
-
+  const [isFavorited, setIsFavorited] = useState(
+    () => JSON.parse(localStorage.getItem(`favorited_${id}`)) || false
+  );
+  
   const addToFavorites = async (recipeId) => {
     let userEmail = sessionStorage.getItem('userEmail');
     try {
@@ -53,19 +55,22 @@ const Product = ({ id, image, title }) => {
     }
   };
 
+
+
   const handleFavorite = (recipeId) => {
     if (favoritedItems[recipeId]) {
       removeFromFavorites(recipeId);
+      localStorage.removeItem(`favorited_${recipeId}`);
     } else {
       addToFavorites(recipeId);
+      localStorage.setItem(`favorited_${recipeId}`, JSON.stringify(recipeId));
     }
   };
 
-  const isFavorited = favoritedItems[id] || false; // Obtient l'état pour cet article
 
 
   return (
-    <div className="col-sm mb-5 ml-8"> {/* Ajout de la classe mb-4 pour l'espacement */}
+    <div className="col-sm mb-5 ml-8"> 
       <div className="card card-cascade card-ecommerce wider shadow mb-5 h-100 ms-5">
         <div className="view view-cascade overlay text-center">
           <img className="card-img-top" src={image} alt="" />
@@ -78,12 +83,16 @@ const Product = ({ id, image, title }) => {
           
           <p className="card-text">{title}</p>
           <br></br>
-          <div className="card-footer position-absolute bottom-0 start-0 end-0 bg-transparent">
+          <br></br>
+
+          <div className="card-footer position-absolute bottom-0 start-0 end-0 bg-transparent ">
           <button className="btn bg-transparent" onClick={() => handleFavorite(id)}>
-            <FontAwesomeIcon icon={isFavorited ?   solidHeart: farHeart } />
-            </button>
+          <FontAwesomeIcon
+                icon={isFavorited ? solidHeart : farHeart}
+                color={isFavorited ? 'red' : 'black'}
+              />            </button>
             <NavLink to={`/recette/${id}`}>
-              <button className="btn btn-primary profile-button">Voir plus</button>
+              <button className="btn btn-primary profile-button mt-3">Voir plus</button>
             </NavLink>
           </div>
         </div>

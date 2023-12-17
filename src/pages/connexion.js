@@ -22,19 +22,13 @@ function Connexion({ user, updateUser }){
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-     {/* if(captcha.current.getValue()){
-        console.log('Vous netes pas un robot')
-        setUtiValide(true)
-      }else{
-        console.log("acceptez le catcha")
-        setUtiValide(false)
-      }*/}
+
       if (email.length === 0) {
-        alert("Veuillez saisir votre nom ");
+        alert("Veuillez saisir votre email ");
       } else if (password.length === 0) {
-        alert("Veuillez saisir votre adresse email");
+        alert("Veuillez saisir votre password");
       } else {
-        const url = "https://linamahdi.alwaysdata.net/connexion.php";
+        const url = "localhost/connexion.php";
         const searchParams = new URLSearchParams(location.search);
         const verification = searchParams.get("verification");
         let fdata = new FormData();
@@ -43,7 +37,7 @@ function Connexion({ user, updateUser }){
         fdata.append("verification",verification);
         try {
           const response = await axios.post(url, fdata, {
-            withCredentials: true  // Indique au navigateur d'envoyer les cookies de session
+            withCredentials: true  
           });
           const responseData = response.data;
           console.log(responseData)
@@ -74,7 +68,11 @@ function Connexion({ user, updateUser }){
         <div className="navbar">
         <div className="nav-container">
           <NavLink exact to="/connexion" className="nav-logo">
-          <img src={require('./../images/Frame 104.png')} alt='connexion' className="connexion"></img>
+          <img 
+          src={require('./../images/Frame 104 (3).png')}
+           alt='connexion' 
+           className="connexion">
+           </img>
 
           </NavLink>
         </div> 
@@ -86,37 +84,45 @@ function Connexion({ user, updateUser }){
            
             <div className="registration-form">
 
-            <form onSubmit={handleSubmit} >
-                <h2>Bienvenue!</h2>
-                      
-                <p>Connectez-vous pour découvrir toutes nos fonctionnalités.</p>
-                {(responseData === 'Email or password do not match.' || responseData==='First verify your account and try again.') ? (
-  <p3>{responseData}</p3>
-):<p2>{responseData}</p2>}
-                    <div className="form-group">
-                     <input name='email' type="email" placeholder="Entrez votre email"  onChange={e => setEmail(e.target.value)}/>
-                    </div>
-
-                    <div className="form-group">
-                     <input name='password' type="password" placeholder="Entrez votre mot de passe" onChange={e => setPassword(e.target.value)}/>
-                    </div>
-            </form>
-            <a href="/Mot-de-passe-oublie"><h5>Mot de passe oublié</h5></a>
-          {/*  <ReCAPTCHA className="ReCAPTCHA"
-              ref={captcha}
-               sitekey="6LfkGRIpAAAAAO6kWKjCehpjSd0ibRw62-7IpTki"
-                onChange={onChange}/>*/}
-              <button name="submit" type="submit" onClick={handleSubmit}>
-              Se connecter
-            </button>
-            <br></br>
-            <br></br>
-
-            <div className="google-button">
-              <GoogleAuth   user={user} updateUser={updateUser}/>      
+            <form>
+            <h2>Welcome!</h2>
+            <p>Log in to discover all our features.</p>
+            {responseData === 'Email or password do not match.' || responseData === 'First verify your account and try again.' ? (
+              <p3>{responseData}</p3>
+            ) : (
+              <p2>{responseData}</p2>
+            )}
+            <div className="form-group">
+              <input name="email" type="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
             </div>
-           <p1>Vous n'avez pas de compte? <a href="/inscription">S'inscrire</a></p1>
+            <div className="form-group">
+              <input name="password" type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
+            </div>
+            
+          <a href="/Mot-de-passe-oublie"><h5>Forgot Password</h5></a>
+          <br></br>
+
+          <ReCAPTCHA
+              className="ReCAPTCHA"
+              ref={captcha}
+              sitekey="6LfkGRIpAAAAAO6kWKjCehpjSd0ibRw62-7IpTki"
+              onChange={onChange}
+            />
+           <button type="submit" onClick={handleSubmit}>
+              Log In
+            </button>
+
+          </form>
+
+          <br></br>
+          <br></br>
+
+          <div className="google-button">
+            <GoogleAuth user={user} updateUser={updateUser} />
           </div>
+          <p1>Don't have an account? <a href="/inscription">Sign Up</a></p1>
+          </div>
+
 
         </div>
       </>

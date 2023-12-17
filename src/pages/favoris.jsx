@@ -16,7 +16,7 @@ function Favoris({ user, updateUser }) {
     const fetchFavoris = async () => {
       try {
           const userEmail =sessionStorage.getItem('userEmail');
-          const response = await axios.get(`https://linamahdi.alwaysdata.net/recup-favoris.php?userEmail=${userEmail}`);
+          const response = await axios.get(`localhost/recup-favoris.php?userEmail=${userEmail}`);
           console.log(response.data);
           setFavoris(response.data);
       } catch (error) {
@@ -49,7 +49,7 @@ function Favoris({ user, updateUser }) {
         <div className="product-list">
                 {Array.isArray(favoris) ? (
                         favoris.map((favori, index) => (
-                            <Product key={index} image={favori.image_favorie} title={favori.titre_favorie} />
+                            <Product id={favori.Idrecette} image={favori.image_favorie} title={favori.titre_favorie} />
                         ))
                     ) : (
                         <p>Aucun favori trouvé ou une erreur est survenue</p>

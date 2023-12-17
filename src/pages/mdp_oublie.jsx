@@ -17,7 +17,7 @@ function Mdp({ user, updateUser }){
         if (email.length === 0) {
             alert("Veuillez saisir votre adresse email ");
           } else {
-            const url = "https://linamahdi.alwaysdata.net/Mot-de-passe-oubie.php";
+            const url = "localhost/Mot-de-passe-oubie.php";
             console.log({email})
             let fdata = new FormData();
             fdata.append("email", email);

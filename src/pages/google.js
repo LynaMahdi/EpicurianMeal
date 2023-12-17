@@ -10,6 +10,7 @@ export default function GoogleAuth({ user, updateUser }) {
     console.log("JWT ID Token", user);
     updateUser(user);
     console.log({user})
+    storeUserDataInSessionStorage(user);
     redirectToRecette(); 
   }
 
@@ -38,19 +39,17 @@ export default function GoogleAuth({ user, updateUser }) {
     history.push("/recettes"); // Redirection vers la page recette
   };
 
+  const storeUserDataInSessionStorage = (userData) => {
+    sessionStorage.setItem('userEmail', JSON.stringify(userData));
+    // Vous pouvez également stocker des éléments spécifiques de userData si nécessaire
+  };
+
   return (
     <div className="App">
-      {Object.keys(user).length !== 0 && (
-        <button onClick={handleSignOut}>Sign out</button>
-      )}
 
       <div id="signInDiv"></div>
 
-      {user && (
-        <div>
-          <h3>{user.name}</h3>
-        </div>
-      )}
+
     </div>
   );
 }

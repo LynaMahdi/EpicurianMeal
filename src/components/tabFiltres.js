@@ -18,6 +18,8 @@ const Filter = ({
   setCuisine,
 }) => {
   return (
+    <div className="Color">
+ 
     <div className="TabFiltres">
       <h1>Filtres</h1>
       <div className="groups">
@@ -114,11 +116,10 @@ const Filter = ({
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value="African">Africaine</MenuItem>
+
                            <MenuItem value="Asian">Asiatique</MenuItem>
                           <MenuItem value="American">Americaine</MenuItem>
                            <MenuItem value="British">Anglaise</MenuItem>
-                           <MenuItem value="Chineese">Chinoise</MenuItem>
                            <MenuItem value="Indian">Indienne</MenuItem>
                             <MenuItem value="French">Française</MenuItem>
                            <MenuItem value="Italian">Italienne</MenuItem>
@@ -129,6 +130,8 @@ const Filter = ({
         </FormControl>
       </div>
     </div>
+    </div>
+
   );
 };
 

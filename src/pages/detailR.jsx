@@ -26,6 +26,8 @@ const Detail = ({user,updateUser}) => {
     const apiKey='23fb7cfb07dd46dfa99a286c28fa825c'
     const apiKey3='0a99dc9c27874eb2af7712643ff4d1b8';
     const apiKey2='821d2d6c62504983bf8d8dd394444d37'
+    const apiKey4='3210da7ed0e5412fad84b8d8b8757610'
+
 
     const resp = await fetch(  
         `https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${apiKey3}`

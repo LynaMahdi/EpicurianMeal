@@ -11,14 +11,17 @@ function Searched({user, updateUser}){
   const history = useHistory();
 
   const getSearchedRecipes = async (search) => {
+    const apiKey4='3210da7ed0e5412fad84b8d8b8757610'
+    const apiKey3='23fb7cfb07dd46dfa99a286c28fa825c'
+
+
     const resp = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=821d2d6c62504983bf8d8dd394444d37&query=${search}`);
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey3}&query=${search}`);
     const data = await resp.json();
     console.log(data.results)
     return data.results;
   };
 
-  console.log(searchedRecipes)
   useEffect(() => {
     let isMounted = true;
     console.log(parmas.search)
@@ -31,9 +34,8 @@ function Searched({user, updateUser}){
     };
   }, [parmas.search]);
   const checkSession = () => {
-    // Retrieve the stored value from sessionStorage
+
     const userEmail = sessionStorage.getItem('userEmail');
-    console.log(userEmail)
 
     if (userEmail==null) {
       history.push('/connexion')
@@ -51,7 +53,7 @@ function Searched({user, updateUser}){
         <br/>
         <div className="classBar">
             <Search/>
-    </div>
+        </div>
 
 
     <div className="product-list">

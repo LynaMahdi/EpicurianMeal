@@ -1,3 +1,24 @@
+/* Par exemple, réduisez la taille du texte du titre */
+.card-text {
+  font-size: 14px; /* Modifiez la taille de la police selon vos besoins */
+}
+
+/* Ou réduisez la taille du bouton */
+.profile-button {
+  font-size: 14px; /* Modifiez la taille de la police selon vos besoins */
+}
+
+/* Ajustez le style du titre et du bouton pour la largeur d'écran spécifique */
+@media screen and (max-width: 996px) {
+  .card-text {
+    font-size: 14px; /* Modifiez la taille de la police selon vos besoins */
+  }
+
+  .profile-button {
+    font-size: 14px; /* Modifiez la taille de la police selon vos besoins */
+  }
+}
+
 
 .TabFiltres{
   position: relative;
@@ -46,7 +67,6 @@
   text-align: center;
   border-radius: 4px;
 }
-
 
 
 
