@@ -1,90 +1,105 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 
-
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
+// Import des classes PHPMailer dans l'espace de noms global
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
+// Chargement de l'autoloader de Composer
 require 'vendor/autoload.php';
 
 include 'config.php';
 $msg = "";
 
+class Mailer {
+    private $conn;
 
-        $name = mysqli_real_escape_string($conn, $_POST['nom']);
-        $email = mysqli_real_escape_string($conn, $_POST['adressemail']);
-        $password = mysqli_real_escape_string($conn, md5($_POST['mdp']));
-        $code = mysqli_real_escape_string($conn, md5(rand()));
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
 
-        if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Utilisateurs WHERE adressemail='{$email}'")) > 0) {
-            echo "This email address has been already exists.";
+    public function sendVerificationEmail($name, $email, $password) {
+        $name = mysqli_real_escape_string($this->conn, $name);
+        $email = mysqli_real_escape_string($this->conn, $email);
+        $password = mysqli_real_escape_string($this->conn, md5($password));
+        $code = mysqli_real_escape_string($this->conn, md5(rand()));
+
+        if (mysqli_num_rows(mysqli_query($this->conn, "SELECT * FROM Utilisateurs WHERE adressemail='{$email}'")) > 0) {
+            echo "This email address already exists.";
         } else {
-                $sql = "INSERT INTO Utilisateurs (nom, adressemail, mdp, code) VALUES ('{$name}', '{$email}', '{$password}', '{$code}')";
-                $result = mysqli_query($conn, $sql);
+            $sql = "INSERT INTO Utilisateurs (nom, adressemail, mdp, code) VALUES ('{$name}', '{$email}', '{$password}', '{$code}')";
+            $result = mysqli_query($this->conn, $sql);
 
-                if ($result) {
-                   
-                    //Create an instance; passing `true` enables exceptions
-                    $mail = new PHPMailer(true);
+            if ($result) {
+                $mail = new PHPMailer(true);
 
-                    try {
-                        //Server settings
-                        $mail->SMTPDebug = 0;
-                        $mail->SMTPSecure='ssl';                      //Enable verbose debug output
-                        $mail->isSMTP();                                            //Send using SMTP
-                        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                        $mail->Username   = 'eepicureanmeal@gmail.com';                     //SMTP username
-                        $mail->Password   = '*****';                               //SMTP password
-                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; 
-                        $mail->Port = 465; // Port SMTP pour Gmail (587 pour TLS)
-                        //Recipients
-                        $mail->setFrom('eepicureanmeal@gmail.com');
-                        $mail->addAddress($email);
+                try {
+                    $mail->SMTPDebug = 0;
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'eepicureanmeal@gmail.com';
+                    $mail->Password = '*****'; // Entrez votre mot de passe Gmail ici
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                    $mail->Port = 465;
 
-                        //Content
-                        $mail->isHTML(true);                                  //Set email format to HTML
-                        $mail->Subject = 'no reply Registration code';
-                        $mail->Body = '
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        
-                        <head>
-                            <meta charset="UTF-8">
-                            <title>Verification Email</title>
-                        </head>
-                        
-                        <body style="font-family: Arial, sans-serif;">
-                        
-                            <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f7f7f7;">
-                                <h2 style="text-align: center; color: #333;">Verification Email</h2>
-                                <p style="color: #333;">
-                                    Welcome!<br>
-                                    Here is the verification link to complete your registration:<br>
-                                    <a href="https://epicureanmeal.alwaysdata.net/connexion?verification=' . $code . '" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 15px;">Verify Email</a>
-                                </p>
-                                <p style="color: #333;">If the button above doesn\'t work, you can also click the link below:</p>
-                                <p style="color: #333; margin-top: -10px;">
-                                    <a href="https://epicureanmeal.alwaysdata.net/connexion?verification=' . $code . '" style="color: #007bff; text-decoration: underline;" target="_blank">https://epicureanrecipes.alwaysdata.net/connexion/?verification=' . $code . '</a>
-                                </p>
-                            </div>
-                        
-                        </body>
-                        
-                        </html>';
+                    $mail->setFrom('eepicureanmeal@gmail.com');
+                    $mail->addAddress($email);
 
-                        $mail->send();
-                        echo "We've send a verification link on your email address.";
+                    $mail->isHTML(true);
+                    $mail->Subject = 'no reply Registration code';
+                    $mail->Body = $this->buildEmailBody($code);
 
-                    } catch (Exception $e) {
-                        echo "Message could not be sent. Mailer Error";
-                    }
-                } else {
-                    echo "Something wrong went.";
+                    $mail->send();
+                    echo "We've sent a verification link to your email address.";
+                } catch (Exception $e) {
+                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
-            } 
+            } else {
+                echo "Something went wrong.";
+            }
+        }
+    }
+
+    private function buildEmailBody($code) {
+        return '
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="UTF-8">
+            <title>Verification Email</title>
+        </head>
+        
+        <body style="font-family: Arial, sans-serif;">
+        
+            <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f7f7f7;">
+                <h2 style="text-align: center; color: #333;">Verification Email</h2>
+                <p style="color: #333;">
+                    Welcome!<br>
+                    Here is the verification link to complete your registration:<br>
+                    <a href="https://epicureanmeal.alwaysdata.net/connexion?verification=' . $code . '" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 15px;">Verify Email</a>
+                </p>
+                <p style="color: #333;">If the button above doesn\'t work, you can also click the link below:</p>
+                <p style="color: #333; margin-top: -10px;">
+                    <a href="https://epicureanmeal.alwaysdata.net/connexion?verification=' . $code . '" style="color: #007bff; text-decoration: underline;" target="_blank">https://epicureanrecipes.alwaysdata.net/connexion/?verification=' . $code . '</a>
+                </p>
+            </div>
+        
+        </body>
+        
+        </html>';
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $mailer = new Mailer($conn);
+    $name = $_POST['nom'];
+    $email = $_POST['adressemail'];
+    $password = $_POST['mdp'];
+
+    $mailer->sendVerificationEmail($name, $email, $password);
+}
 ?>

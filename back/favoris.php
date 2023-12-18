@@ -1,52 +1,47 @@
 <?php
-// Autoriser les requêtes CORS depuis http://localhost:3000
 header('Access-Control-Allow-Origin: https://epicureanmeal.alwaysdata.net');
-header("Access-Control-Allow-Methods: POST"); // Ajoutez d'autres méthodes si nécessaire
+header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 
-
-//Load Composer's autoloader
 require 'vendor/autoload.php';
-
 include 'config.php';
 
-// Vérifier si la requête est de type POST
-if (isset($_POST['id']) ) {
-    echo "hhhhh";
-    $id_recette=$_POST['id'];
-    $email_user = $_POST['userEmail']; // Récupération de l'email depuis la requête POST
-    $id_user = null; // Initialisation de l'ID utilisateur
-    // Requête SQL pour récupérer l'ID utilisateur en fonction de l'email
-    $getUserIDQuery = "SELECT iduser FROM Utilisateurs WHERE adressemail= '$email_user'";
+class FavoriteHandler {
+    private $conn;
 
-    $result = mysqli_query($conn, $getUserIDQuery);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        // Si l'utilisateur existe, récupérez son ID
-        $row = mysqli_fetch_assoc($result);
-        $id_user = $row['iduser'];
+    public function __construct($conn) {
+        $this->conn = $conn;
     }
-    echo $id_user;
 
-    // Vérifiez si vous avez récupéré l'ID de l'utilisateur avant de continuer
-    if ($id_user !== null) {
-    // Si la recette est favorisée, insérez-la dans la table des favoris
-            // Vos variables pour l'image et le titre de la recette
-            $image_favorie = $_POST['image']; // Remplacez par le chemin réel de l'image
-            $titre_favorie = $_POST['title']; // Remplacez par le titre de la recette
+    public function addToFavorites($idRecette, $userEmail, $image, $title) {
+        $id_recette = mysqli_real_escape_string($this->conn, $idRecette);
+        $email_user = mysqli_real_escape_string($this->conn, $userEmail);
+        $image_favorie = mysqli_real_escape_string($this->conn, $image);
+        $titre_favorie = mysqli_real_escape_string($this->conn, $title);
 
-            // Requête d'insertion pour ajouter la recette aux favoris
+        $getUserIDQuery = "SELECT iduser FROM Utilisateurs WHERE adressemail = '$email_user'";
+        $result = mysqli_query($this->conn, $getUserIDQuery);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $id_user = $row['iduser'];
+
             $insertQuery = "INSERT INTO favoris (iduser, Idrecette, image_favorie, titre_favorie) VALUES ('$id_user', '$id_recette', '$image_favorie', '$titre_favorie')";
 
-            // Exécution de la requête d'insertion dans la base de données
-            if (mysqli_query($conn, $insertQuery)) {
+            if (mysqli_query($this->conn, $insertQuery)) {
                 echo 'Recette ajoutée aux favoris avec succès';
             } else {
-                echo 'Erreur lors de l\'ajout de la recette aux favoris : ' . mysqli_error($conn);
+                echo 'Erreur lors de l\'ajout de la recette aux favoris : ' . mysqli_error($this->conn);
             }
         } else {
-        echo 'Utilisateur non trouvé';
+            echo 'Utilisateur non trouvé';
+        }
     }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'], $_POST['userEmail'], $_POST['image'], $_POST['title'])) {
+    $favoriteHandler = new FavoriteHandler($conn);
+    $favoriteHandler->addToFavorites($_POST['id'], $_POST['userEmail'], $_POST['image'], $_POST['title']);
 } else {
     echo 'Données manquantes';
 }
